@@ -8,7 +8,7 @@ public class TestController {
     
     @RequestMapping("/")
     public String index() {
-        return "Spring is running...";
+        return "Dataset size: " + Dataset.data.size() + " people.";
     }
     
 }
