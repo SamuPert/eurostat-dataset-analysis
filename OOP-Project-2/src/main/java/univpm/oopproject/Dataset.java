@@ -1,17 +1,62 @@
 package univpm.oopproject;
 
 import java.io.BufferedReader;
+import org.json.simple.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dataset {
+public abstract class Dataset {
 
-	public static List<Person> data = new ArrayList<Person>();
+	private static List<Person> data = new ArrayList<Person>();
 	
 	public static void addPerson(Person p) {
 		data.add(p);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static JSONObject getJSONDataset()
+	{
+		JSONObject datasetJSONObj = new JSONObject();
+		JSONArray datasetJSON = new JSONArray();
+
+		for (Person p : Dataset.getDataset())
+		{
+			JSONObject personDataObj = new JSONObject();
+			
+			personDataObj.put("WorkingStatus", p.getWstatus() );
+			personDataObj.put("Indic_Il", p.getIndic_il() );
+			personDataObj.put("Sex", p.getSex() );
+			
+			if(p.getEtaMax() >= 0 && p.getEtaMin() >= 0)
+			{
+				personDataObj.put("AgeRange", p.getEtaMin() + "-" + p.getEtaMax() );				
+			}else if( p.getEtaMin() < 0 ) {
+				personDataObj.put("AgeRange", "<" + p.getEtaMax() );
+			}else if( p.getEtaMax() < 0 ) {
+				personDataObj.put("AgeRange", ">" + p.getEtaMin() );
+			}
+			personDataObj.put("Country", p.getCountry() );
+			
+			
+			JSONObject dataObj = new JSONObject();
+			for (TupleData td : p.getIndexes())
+			{
+				dataObj.put(td.getYear(), td.getValue());				
+			}
+			
+			personDataObj.put("Data", dataObj );
+			
+			datasetJSON.add(personDataObj);	
+		}
+		
+		
+		datasetJSONObj.put("PeopleData", datasetJSON);
+		datasetJSONObj.put("Count", Dataset.getDataset().size() );
+		datasetJSONObj.put("Success", true);
+		
+		return datasetJSONObj;
 	}
 	
 	public static void LoadAndParseDataset( String filename )
@@ -24,6 +69,7 @@ public class Dataset {
 			
 			String[] personData;
 			String[] headingData;
+			String personAgeRange;
 			
 			// Salto prima riga.
 			headingData = bufferedReader.readLine().split("[,\\t]");
@@ -34,44 +80,59 @@ public class Dataset {
             	
             	// Splitta la linea per "\t" e per ","
             	personData = lineData.split("[,\\t]");
-            	
+
+            	personAgeRange = personData[3].trim();
+
             	p.setWstatus( personData[0].trim() );
             	p.setIndic_il( personData[1].trim() );
             	
             	// Prendi il primo carattere del sesso
             	p.setSex( personData[2].trim().toCharArray()[0] );
             	
-            	if( personData[3].trim().toCharArray()[1] == '_' )
+            	
+            	if( personAgeRange.toCharArray()[1] == '_' )
             	{
-            		if( personData[3].trim().substring(2,2).equals("GE") )
+            		if( personAgeRange.substring(2,2).equals("GE") )
             		{
             			// Greater or Equal
-                    	p.setEtaMin( Integer.parseInt( personData[3].trim().substring(4) ) );
+                    	p.setEtaMin( Integer.parseInt( personAgeRange.substring(4) ) );
                 		p.setEtaMax( -1 ); 
                 		
-            		} else if( personData[3].trim().substring(2,2).equals("LE") )
+            		} else if( personAgeRange.substring(2,2).equals("LE") )
             		{
             			// Lower or Equal
                     	p.setEtaMin( -1 );
-                		p.setEtaMax( Integer.parseInt( personData[3].trim().substring(4) ) ); 
+                		p.setEtaMax( Integer.parseInt( personAgeRange.substring(4) ) ); 
             		}
                	
             	}else{
-            		String[] yearMinMax = personData[3].trim().substring(1).split("-");
+            		String[] yearMinMax = personAgeRange.substring(1).split("-");
             		p.setEtaMin( Integer.parseInt( yearMinMax[0].trim() ) ); 
             		p.setEtaMax( Integer.parseInt( yearMinMax[1].trim() ) ); 
             	}
 
             	p.setCountry( personData[4] );
             	
-            	for( int i = 5; i < headingData.length && i < personData.length ; i++ )
+            	int i;
+            	for( i = 5; i < headingData.length && i < personData.length ; i++ )
             	{
             		if( !personData[i].trim().split(" ")[0].equals(":") )
             		{
                 		TupleData t;
                 		t = new TupleData( Integer.parseInt( headingData[i].trim() ), Double.parseDouble( personData[i].trim().split(" ")[0] ) );
-                		p.addIndexes( t );            			
+                		p.addIndexes( t );
+            		} else {
+            			TupleData t;
+                		t = new TupleData( Integer.parseInt( headingData[i].trim() ), 0 );
+                		p.addIndexes( t );
             		}
+            	}
+            	
+            	for( ; i < headingData.length; i++ )
+            	{
+            		TupleData t;
+            		t = new TupleData( Integer.parseInt( headingData[i].trim() ), 0 );
+            		p.addIndexes( t );	
             	}
             	
             	Dataset.addPerson(p);
@@ -87,4 +148,9 @@ public class Dataset {
 		System.out.println("PARSING COMPLETATO!");
 		// FINE PARSING
 	}
+
+	public static List<Person> getDataset() {
+		return data;
+	}
+
 }
