@@ -1,10 +1,12 @@
 package univpm.oopproject;
 
 import java.io.BufferedReader;
+import java.util.*;
 import org.json.simple.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class Dataset {
@@ -151,6 +153,141 @@ public abstract class Dataset {
 
 	public static List<Person> getDataset() {
 		return data;
+	}
+	
+	public static JSONObject  getJSONAnalytics()
+	{
+		int annoMinimo = 3000;
+		
+		// Prendi anno più piccolo dai metadati
+		for (TupleData t : getDataset().get(0).getIndexes() )
+		{
+			int year = t.getYear();
+			if(annoMinimo > year) annoMinimo = year;
+		}
+		
+		NumericAnalyticsData[] nad = new NumericAnalyticsData[ getDataset().get(0).getIndexes().size() ];
+		for( int i = 0; i < nad.length; i++ )
+			nad[i] = new NumericAnalyticsData();
+		
+		JSONObject analytics = new JSONObject();
+		JSONArray analyticsData = new JSONArray();
+
+		HashTableCustom<String, Integer> workingStatusHashTable = new HashTableCustom<String, Integer>();
+		HashTableCustom<String, Integer> indicIlHashTable = new HashTableCustom<String, Integer>();
+		HashTableCustom<String, Integer> sexHashTable = new HashTableCustom<String, Integer>();
+		HashTableCustom<String, Integer> etaRangeHashTable = new HashTableCustom<String, Integer>();
+		HashTableCustom<String, Integer> countryHashTable = new HashTableCustom<String, Integer>();
+
+		
+		for (Person p : Dataset.getDataset())
+		{
+			JSONObject personDataObj = new JSONObject();
+		
+			workingStatusHashTable.setOrInc( p.getWstatus() );
+			indicIlHashTable.setOrInc( p.getIndic_il() );
+			sexHashTable.setOrInc( String.valueOf( p.getSex() ) );
+			etaRangeHashTable.setOrInc( p.getEtaRange() );
+			countryHashTable.setOrInc( p.getCountry() );
+			
+			for (TupleData t : p.getIndexes() )
+			{
+				int index = t.getYear() - annoMinimo;
+				nad[index].sum += t.getValue();
+				nad[index].count ++;
+
+				if( nad[index].count == 1 )
+				{
+					nad[index].min = t.getValue();
+					nad[index].max = t.getValue();
+				}else {
+					nad[index].min = Math.min(nad[index].min, t.getValue());
+					nad[index].max = Math.max(nad[index].max, t.getValue());					
+				}
+				
+			}
+				
+		}
+		
+		
+		for (int i=0; i<nad.length; i++)
+		{
+			nad[i].avg = nad[i].sum/nad[i].count;
+		}
+		
+
+		for (Person p : Dataset.getDataset())
+		{
+			for (TupleData t : p.getIndexes() )
+			{
+				int index = t.getYear() - annoMinimo;
+				nad[index].devstd += Math.pow( (nad[index].avg - t.getValue()) , 2);
+			}
+		}
+		
+		JSONObject wstatusJSONData = new JSONObject();
+		JSONObject indicIlJSONData = new JSONObject();
+		JSONObject sexJSONData = new JSONObject();
+		JSONObject etaRangeJSONData = new JSONObject();
+		JSONObject countryJSONData = new JSONObject();
+		
+		wstatusJSONData.put("Field", "Wstatus");
+		wstatusJSONData.put("Data", workingStatusHashTable.getJSONValues() );
+		wstatusJSONData.put("Type", "String" );
+
+		indicIlJSONData.put("Field", "IndicIl");
+		indicIlJSONData.put("Data", indicIlHashTable.getJSONValues() );
+		indicIlJSONData.put("Type", "String" );
+
+		sexJSONData.put("Field", "Sex");
+		sexJSONData.put("Data", sexHashTable.getJSONValues() );
+		sexJSONData.put("Type", "String" );
+
+		etaRangeJSONData.put("Field", "AgeRange");
+		etaRangeJSONData.put("Data", etaRangeHashTable.getJSONValues() );
+		etaRangeJSONData.put("Type", "String" );
+
+		countryJSONData.put("Field", "Country");
+		countryJSONData.put("Data", countryHashTable.getJSONValues() );
+		countryJSONData.put("Type", "String" );
+
+		analyticsData.add( wstatusJSONData );
+		analyticsData.add( indicIlJSONData );
+		analyticsData.add( sexJSONData );
+		analyticsData.add( etaRangeJSONData );
+		analyticsData.add( countryJSONData );
+		
+		
+		for (int i=0; i<nad.length; i++)
+		{
+			JSONObject dataObject = new JSONObject();
+			JSONObject jdata = new JSONObject();
+			dataObject.put("Field", i + annoMinimo);
+			jdata.put("Sum", nad[i].sum );
+			jdata.put("Count", nad[i].count );
+			jdata.put("Avg", nad[i].avg );
+			jdata.put("Min", nad[i].min );
+			jdata.put("Max", nad[i].max );
+			jdata.put("Devstd", nad[i].devstd );
+			
+			dataObject.put("Data", jdata);
+			dataObject.put("Type", "Numeric");
+			analyticsData.add(dataObject);
+		}
+		
+		
+		analyticsData.add( wstatusJSONData );
+		analyticsData.add( indicIlJSONData );
+		analyticsData.add( sexJSONData );
+		analyticsData.add( etaRangeJSONData );
+		analyticsData.add( countryJSONData );
+
+		
+			
+		
+		analytics.put("Data", analyticsData);
+		return analytics;
+	
 	}
 
 }

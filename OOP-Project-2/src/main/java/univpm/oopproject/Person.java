@@ -8,8 +8,9 @@ public class Person {
 	public String wstatus;
 	public String indic_il;
 	public char sex;
-	public int etaMax;
-	public int etaMin;
+	private int etaMax = 0;
+	private int etaMin = 0;
+	public String etaRange;
 	public String country;
 	public List<TupleData> indexes;
 	
@@ -60,6 +61,7 @@ public class Person {
 
 	public void setEtaMax(int etaMax) {
 		this.etaMax = etaMax;
+		this.setEtaRange();
 	}
 
 
@@ -70,6 +72,7 @@ public class Person {
 
 	public void setEtaMin(int etaMin) {
 		this.etaMin = etaMin;
+		this.setEtaRange();
 	}
 
 
@@ -92,5 +95,23 @@ public class Person {
 		this.indexes = indexes;
 	}
 	
+	private void setEtaRange()
+	{
+	
+		if( this.getEtaMax() >= 0 && this.getEtaMin() >= 0)
+		{
+			this.etaRange = this.getEtaMin() + "-" + this.getEtaMax();				
+		}else if( this.getEtaMin() < 0 ) {
+			this.etaRange = "<" + this.getEtaMax();
+		}else if( this.getEtaMax() < 0 ) {
+			this.etaRange = ">" + this.getEtaMin();
+		}
+	
+	}
+	
+	public String getEtaRange()
+	{
+		return this.etaRange;
+	}
 	
 }

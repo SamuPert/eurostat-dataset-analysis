@@ -12,11 +12,17 @@ public class MainController {
     {
     	return "Dataset size: " + Dataset.getDataset().size() + " people.";
     }
-    	
-    @RequestMapping("/full")
-    public JSONObject getFullData()
-    {
-    	return Dataset.getJSONDataset();
-    }
+	
+	@RequestMapping("/getFullDataset")
+	public JSONObject getFullData()
+	{
+		return Dataset.getJSONDataset();
+	}
+	
+	@RequestMapping("/getAnalytics")
+	public JSONObject getAnalytics()
+	{
+		return Dataset.getJSONAnalytics();
+	}
     
 }
