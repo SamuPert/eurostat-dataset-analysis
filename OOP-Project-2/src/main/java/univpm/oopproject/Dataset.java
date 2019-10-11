@@ -33,11 +33,11 @@ public abstract class Dataset {
 			
 			if(p.getEtaMax() >= 0 && p.getEtaMin() >= 0)
 			{
-				personDataObj.put("AgeRange", p.getEtaMin() + "-" + p.getEtaMax() );				
+				personDataObj.put("EtaRange", p.getEtaMin() + "-" + p.getEtaMax() );				
 			}else if( p.getEtaMin() < 0 ) {
-				personDataObj.put("AgeRange", "<" + p.getEtaMax() );
+				personDataObj.put("EtaRange", "<" + p.getEtaMax() );
 			}else if( p.getEtaMax() < 0 ) {
-				personDataObj.put("AgeRange", ">" + p.getEtaMin() );
+				personDataObj.put("EtaRange", ">" + p.getEtaMin() );
 			}
 			personDataObj.put("Country", p.getCountry() );
 			
@@ -155,18 +155,53 @@ public abstract class Dataset {
 		return data;
 	}
 	
-	public static JSONObject  getJSONAnalytics()
+	public static int getAnnoMinimo()
+	{
+		return Dataset.getAnnoMinimo( Dataset.getDataset() );
+	}
+	
+	public static int getAnnoMinimo( List<Person> dataset )
 	{
 		int annoMinimo = 3000;
 		
 		// Prendi anno più piccolo dai metadati
-		for (TupleData t : getDataset().get(0).getIndexes() )
+		for (TupleData t : dataset.get(0).getIndexes() )
 		{
 			int year = t.getYear();
 			if(annoMinimo > year) annoMinimo = year;
 		}
+		return annoMinimo;
+	}
+	
+	public static int getAnnoMassimo()
+	{
+		return Dataset.getAnnoMassimo( Dataset.getDataset() );
+	}
+	
+	public static int getAnnoMassimo( List<Person> dataset )
+	{
+		int annoMassimo = 0;		
+		// Prendi anno più grande dai metadati
+		for (TupleData t : dataset.get(0).getIndexes() )
+		{
+			int year = t.getYear();
+			if(annoMassimo < year) annoMassimo = year;
+		}
+		return annoMassimo;
+	}
+	
+	public static JSONObject analyzeDataset( List<Person> dataset )
+	{
+		if( dataset.size() == 0 )
+		{
+			JSONObject ret = new JSONObject();
+			ret.put("Errore", "Nessun dato trovato con i filtri inseriti.");
+			return ret;
+		}
 		
-		NumericAnalyticsData[] nad = new NumericAnalyticsData[ getDataset().get(0).getIndexes().size() ];
+		int annoMinimo = Dataset.getAnnoMinimo( dataset );
+		
+		NumericAnalyticsData[] nad = new NumericAnalyticsData[ dataset.get(0).getIndexes().size() ];
 		for( int i = 0; i < nad.length; i++ )
 			nad[i] = new NumericAnalyticsData();
 		
@@ -180,7 +215,7 @@ public abstract class Dataset {
 		HashTableCustom<String, Integer> countryHashTable = new HashTableCustom<String, Integer>();
 
 		
-		for (Person p : Dataset.getDataset())
+		for (Person p : dataset)
 		{
 			JSONObject personDataObj = new JSONObject();
 		
@@ -216,7 +251,7 @@ public abstract class Dataset {
 		}
 		
 
-		for (Person p : Dataset.getDataset())
+		for (Person p : dataset)
 		{
 			for (TupleData t : p.getIndexes() )
 			{
@@ -243,7 +278,7 @@ public abstract class Dataset {
 		sexJSONData.put("Data", sexHashTable.getJSONValues() );
 		sexJSONData.put("Type", "String" );
 
-		etaRangeJSONData.put("Field", "AgeRange");
+		etaRangeJSONData.put("Field", "EtaRange");
 		etaRangeJSONData.put("Data", etaRangeHashTable.getJSONValues() );
 		etaRangeJSONData.put("Type", "String" );
 
@@ -262,7 +297,7 @@ public abstract class Dataset {
 		{
 			JSONObject dataObject = new JSONObject();
 			JSONObject jdata = new JSONObject();
-			dataObject.put("Field", i + annoMinimo);
+			dataObject.put("Field", String.valueOf( i + annoMinimo ) );
 			jdata.put("Sum", nad[i].sum );
 			jdata.put("Count", nad[i].count );
 			jdata.put("Avg", nad[i].avg );
@@ -274,16 +309,7 @@ public abstract class Dataset {
 			dataObject.put("Type", "Numeric");
 			analyticsData.add(dataObject);
 		}
-		
-		
-		analyticsData.add( wstatusJSONData );
-		analyticsData.add( indicIlJSONData );
-		analyticsData.add( sexJSONData );
-		analyticsData.add( etaRangeJSONData );
-		analyticsData.add( countryJSONData );
-
-		
-			
+					
 		
 		analytics.put("Data", analyticsData);
 		return analytics;

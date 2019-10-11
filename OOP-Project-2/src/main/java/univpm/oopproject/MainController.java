@@ -3,10 +3,18 @@ package univpm.oopproject;
 import org.springframework.web.bind.annotation.RestController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @RestController
 public class MainController {
@@ -75,14 +83,69 @@ public class MainController {
 	public JSONObject getFullData()
 	{
 		return Dataset.getJSONDataset();
+}
+	
+	@RequestMapping( value = "/get/analytics", method = RequestMethod.GET, produces="application/json" )
+	public JSONObject getAnalytics()
+	{
+		return Dataset.analyzeDataset( Dataset.getDataset() );
 	}
 	
 	@RequestMapping( value = "/get/analytics", method = RequestMethod.POST, produces="application/json" )
-	public JSONObject getAnalytics( @RequestBody(required = false) String filter )
+	public JSONObject getFilteredAnalytics( @RequestBody(required = false) String filter )
 	{
+		if( filter == null )
+		{
+			return Dataset.analyzeDataset( Dataset.getDataset() );
+		}
+		
+		List<Person> data = new ArrayList<Person>();
+		
+		JSONParser parser = new JSONParser();
+		JSONObject dataFilteredJSON;
+		JSONObject filtersJSON;
+		
+		try {
+			filtersJSON = (JSONObject) parser.parse(filter);
+		} catch (ClassCastException e) {
+			dataFilteredJSON = new JSONObject();
+			dataFilteredJSON.put("Error", "Errore nel parsing della richiesta filtro.");
+			return dataFilteredJSON;
+		} catch (ParseException e) {
+			dataFilteredJSON = new JSONObject();
+			dataFilteredJSON.put("Error", "Errore nel parsing della richiesta filtro.");
+			return dataFilteredJSON;
+		}
+
+		// { "wstatus" : {"$not" : "1" } }
+		// {"field" : {"$in" : [value1, value2, ...]}}
+		// {"field" : {"$nin" : [value1, value2, ...]}}
+		// {"field" : {"$or" : [ "A", "B", "C" ]    }}
+		// {"field" : {"$and" : [ "A", "B", "C" ]    }}
+
+		JSONObject responseValidator = Utils.isFilterValid( filtersJSON );
+		
+		if( ! responseValidator.containsKey("Success") )
+			return responseValidator;
 		
 		
-		return Dataset.getJSONAnalytics();
+		
+		
+		for( Person p: Dataset.getDataset() )
+		{
+			if( p.applyFilter( filtersJSON ) )
+				data.add( p );
+		}
+		
+		
+		
+		
+		System.out.println(data.size());
+		
+		
+		
+		
+		return Dataset.analyzeDataset( data );
 	}
     
 }
