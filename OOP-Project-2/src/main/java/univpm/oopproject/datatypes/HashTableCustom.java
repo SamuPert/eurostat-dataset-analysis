@@ -5,15 +5,31 @@ import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Classe personalizzata per una gestione ottimizzata della HashTable. 
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ * @param <K> Chiave
+ * @param <V> Valore
+ */
 public class HashTableCustom <K, V> extends Hashtable {
 
-	
+	/**
+	 * Aggiorna il valore associato ad una chiave
+	 * @param key Chiave nella quale si vuole modificare il valore
+	 * @param newValue Il valore che assumerà la nuova chiave.
+	 */
 	public void set (K key, V newValue) {
 		this.remove(key);
 		this.put(key, newValue);
 	}
 	
-	//metodo per la creazione o l'incremento della chiave
+	/**
+	 * Metodo che crea la chiave nel caso in cui 
+	 * questa non esista, altrimenti la incrementa
+	 * nel caso in cui ne esista già una.
+	 * @param key Chiave
+	 */
 	public void setOrInc (K key) {
 		
 		if(!(key instanceof String)) return;
@@ -30,6 +46,12 @@ public class HashTableCustom <K, V> extends Hashtable {
 		}
 	}
 	
+	/**
+	 * Metodo che crea un array di oggetti di tipo JSON 
+	 * in cui inserisce la coppia Valore-Conteggio della 
+	 * chiave.
+	 * @return L'array creato
+	 */
 	public JSONArray getJSONValues()
 	{
 		JSONArray json = new JSONArray();
@@ -37,8 +59,8 @@ public class HashTableCustom <K, V> extends Hashtable {
 		
 		for (String key : keyset ) {
 			JSONObject jobj = new JSONObject ();
-			jobj.put("Value", key);
-			jobj.put("Count", this.get(key));
+			jobj.put("Valore", key);
+			jobj.put("Conteggio", this.get(key));
 			json.add(jobj);
 		}	
 		return json;

@@ -3,6 +3,11 @@ package univpm.oopproject.datatypes;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe utilizzata per la gestione dei dati analitici.
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ */
 public class NumericAnalyticsData
 {
 	private double sum = 0;
@@ -14,6 +19,9 @@ public class NumericAnalyticsData
 	
 	private List<Double> data;
 
+	/**
+	 * Costruttore della Classe NumericAnalyticsData.
+	 */
 	public NumericAnalyticsData()
 	{
 		this.data = new ArrayList<Double>();
@@ -23,6 +31,12 @@ public class NumericAnalyticsData
 		this.devstd = 0;
 	}
 	
+	/**
+	 * Metodo che inserisce un nuovo valore in lista
+	 * aggiornandone la somma, il conteggio,
+	 * minimo e massimo dei valori iseriti. 
+	 * @param value Valore che vogliamo inserire
+	 */
 	public void addValue( double value )
 	{
 		this.data.add(value);
@@ -41,11 +55,17 @@ public class NumericAnalyticsData
 		calculateAvg();
 	}
 	
+	/**
+	 * Metodo che calcola la media dei valori inseriti.
+	 */
 	public void calculateAvg()
 	{
 		this.avg = this.sum / this.count;
 	}
 	
+	/**
+	 * Metodo che calcola la deviazione standard dei valori inseriti.
+	 */
 	public void calculateDevstd()
 	{
 		double devstd = 0;
@@ -56,26 +76,50 @@ public class NumericAnalyticsData
 		this.devstd = devstd;
 	}
 	
+	/**
+	 * Metodo che ritorna la somma dei valori inseriti.
+	 * @return Somma dei valori inseriti.
+	 */
 	public double getSum() {
 		return sum;
 	}
 
+	/**
+	 * Metodo che ritorna il conteggio dei valori inseriti.
+	 * @return Conteggio dei valori inseriti.
+	 */
 	public int getCount() {
 		return count;
 	}
 
+	/**
+	 * Metodo che ritorna la media dei valori inseriti.
+	 * @return Media dei valori inseriti.
+	 */
 	public double getAvg() {
 		return avg;
 	}
 
+	/**
+	 * Metodo che ritorna la deviazione standard dei valori inseriti.
+	 * @return Deviazione standard dei valori inseriti.
+	 */
 	public double getDevstd() {
 		return devstd;
 	}
-
+	
+	/**
+	 * Metodo che ritorna il minimo dei valori inseriti.
+	 * @return Minimo dei valori inseriti.
+	 */
 	public double getMin() {
 		return min;
 	}
 
+	/**
+	 * Metodo che ritorna il massimo dei valori inseriti.
+	 * @return Massimo dei valori inseriti.
+	 */
 	public double getMax() {
 		return max;
 	}
