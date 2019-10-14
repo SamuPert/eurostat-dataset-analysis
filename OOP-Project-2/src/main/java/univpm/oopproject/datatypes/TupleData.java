@@ -1,11 +1,11 @@
-package univpm.oopproject;
+package univpm.oopproject.datatypes;
 
 public class TupleData {
 	
 	public int year;
 	public double value;
 	
-	TupleData(int year, double value) {
+	public TupleData(int year, double value) {
 		this.year = year;
 		this.value = value;
 	}

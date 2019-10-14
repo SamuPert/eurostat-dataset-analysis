@@ -1,4 +1,4 @@
-package univpm.oopproject;
+package univpm.oopproject.utils;
 
 public abstract class Configurations
 {

@@ -1,6 +1,11 @@
-package univpm.oopproject;
+package univpm.oopproject.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import univpm.oopproject.dataset.Dataset;
+import univpm.oopproject.datatypes.Person;
+import univpm.oopproject.utils.Utils;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,9 +25,9 @@ import java.util.Set;
 public class MainController {
     
 	@RequestMapping("/")
-    public String index()
+    public JSONObject index()
     {
-    	return "Dataset size: " + Dataset.getDataset().size() + " people.";
+		return Dataset.getJSONDataset();
     }
 	
 	@RequestMapping("/get/metadata")

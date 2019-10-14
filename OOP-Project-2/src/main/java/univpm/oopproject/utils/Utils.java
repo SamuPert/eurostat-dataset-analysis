@@ -1,10 +1,12 @@
-package univpm.oopproject;
+package univpm.oopproject.utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import univpm.oopproject.dataset.Dataset;
 
 public abstract class Utils {
 
@@ -13,17 +15,7 @@ public abstract class Utils {
 		int annoMinimo = Dataset.getAnnoMinimo();
 		int annoMassimo = Dataset.getAnnoMassimo();
 		
-		List<String> validFields = new ArrayList<String>();
-		validFields.add("Wstatus");
-		validFields.add("Sex");
-		validFields.add("IndicIl");
-		validFields.add("Age");
-		validFields.add("Country");
-		validFields.add("Wstatus");
-		for(int w1 = annoMinimo; w1 < annoMassimo + 1 ; w1++)
-		{
-			validFields.add( String.valueOf(w1) );	
-		}
+		List<String> validFields = Utils.getValidFilters();
 		
 		JSONObject dataFilteredJSON = new JSONObject();
 		
@@ -251,5 +243,24 @@ public abstract class Utils {
 		dataFilteredJSON.put("Success", true);
 		
 		return dataFilteredJSON;
+	}
+
+	public static List<String> getValidFilters()
+	{
+		int annoMinimo = Dataset.getAnnoMinimo();
+		int annoMassimo = Dataset.getAnnoMassimo();
+		
+		List<String> validFields = new ArrayList<String>();
+		validFields.add("Wstatus");
+		validFields.add("Sex");
+		validFields.add("IndicIl");
+		validFields.add("Age");
+		validFields.add("Country");
+		validFields.add("Wstatus");
+		for(int w1 = annoMinimo; w1 < annoMassimo + 1 ; w1++)
+		{
+			validFields.add( String.valueOf(w1) );	
+		}
+		return validFields;
 	}
 }

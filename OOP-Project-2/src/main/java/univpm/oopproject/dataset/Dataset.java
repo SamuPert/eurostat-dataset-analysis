@@ -1,8 +1,14 @@
-package univpm.oopproject;
+package univpm.oopproject.dataset;
 
 import java.io.BufferedReader;
 import java.util.*;
 import org.json.simple.*;
+
+import univpm.oopproject.datatypes.HashTableCustom;
+import univpm.oopproject.datatypes.NumericAnalyticsData;
+import univpm.oopproject.datatypes.Person;
+import univpm.oopproject.datatypes.TupleData;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -228,18 +234,7 @@ public abstract class Dataset {
 			for (TupleData t : p.getIndexes() )
 			{
 				int index = t.getYear() - annoMinimo;
-				nad[index].sum += t.getValue();
-				nad[index].count ++;
-
-				if( nad[index].count == 1 )
-				{
-					nad[index].min = t.getValue();
-					nad[index].max = t.getValue();
-				}else {
-					nad[index].min = Math.min(nad[index].min, t.getValue());
-					nad[index].max = Math.max(nad[index].max, t.getValue());					
-				}
-				
+				nad[index].addValue( t.getValue() );				
 			}
 				
 		}
@@ -247,18 +242,9 @@ public abstract class Dataset {
 		
 		for (int i=0; i<nad.length; i++)
 		{
-			nad[i].avg = nad[i].sum/nad[i].count;
+			nad[i].calculateDevstd();
 		}
 		
-
-		for (Person p : dataset)
-		{
-			for (TupleData t : p.getIndexes() )
-			{
-				int index = t.getYear() - annoMinimo;
-				nad[index].devstd += Math.pow( (nad[index].avg - t.getValue()) , 2);
-			}
-		}
 		
 		JSONObject wstatusJSONData = new JSONObject();
 		JSONObject indicIlJSONData = new JSONObject();
@@ -298,12 +284,12 @@ public abstract class Dataset {
 			JSONObject dataObject = new JSONObject();
 			JSONObject jdata = new JSONObject();
 			dataObject.put("Field", String.valueOf( i + annoMinimo ) );
-			jdata.put("Sum", nad[i].sum );
-			jdata.put("Count", nad[i].count );
-			jdata.put("Avg", nad[i].avg );
-			jdata.put("Min", nad[i].min );
-			jdata.put("Max", nad[i].max );
-			jdata.put("Devstd", nad[i].devstd );
+			jdata.put("Sum", nad[i].getSum() );
+			jdata.put("Count", nad[i].getCount() );
+			jdata.put("Avg", nad[i].getAvg() );
+			jdata.put("Min", nad[i].getMin() );
+			jdata.put("Max", nad[i].getMax() );
+			jdata.put("Devstd", nad[i].getDevstd() );
 			
 			dataObject.put("Data", jdata);
 			dataObject.put("Type", "Numeric");

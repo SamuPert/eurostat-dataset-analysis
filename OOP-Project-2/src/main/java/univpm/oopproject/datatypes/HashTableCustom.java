@@ -1,4 +1,4 @@
-package univpm.oopproject;
+package univpm.oopproject.datatypes;
 import java.util.Hashtable;
 import java.util.Set;
 

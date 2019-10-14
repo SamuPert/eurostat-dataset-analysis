@@ -1,4 +1,4 @@
-package univpm.oopproject;
+package univpm.oopproject.datatypes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +8,9 @@ import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import univpm.oopproject.dataset.Dataset;
+import univpm.oopproject.utils.Utils;
 
 public class Person {
 	
@@ -20,7 +23,7 @@ public class Person {
 	public String country;
 	public List<TupleData> indexes;
 	
-	Person() {
+	public Person() {
 		indexes = new ArrayList<TupleData>();
 	}
 	
@@ -126,48 +129,11 @@ public class Person {
 		for( Object keyFieldObj : filtersJSON.keySet() )
 		{
 			String field = (String)keyFieldObj;
-			int annoMinimo = Dataset.getAnnoMinimo();
-			int annoMassimo = Dataset.getAnnoMassimo();
 			
-			Object dataToCheck;
-			
-			List<String> validFields = new ArrayList<String>();
-			validFields.add("Wstatus");
-			validFields.add("Sex");
-			validFields.add("IndicIl");
-			validFields.add("EtaRange");
-			validFields.add("Country");
-			for(int w1 = annoMinimo; w1 < annoMassimo + 1 ; w1++)
-			{
-				validFields.add( String.valueOf(w1) );	
-			}
+			List<String> validFields = Utils.getValidFilters();
 			
 			if( !validFields.contains( field ) ) return false;
-			
-			switch( field )
-			{
-				case "Wstatus": dataToCheck = this.getWstatus(); break;
-				case "Country": dataToCheck = this.getCountry(); break;
-				case "EtaRange": dataToCheck = this.getEtaRange(); break;
-				case "IndicIl": dataToCheck = this.getIndic_il(); break;
-				case "Sex": dataToCheck = this.getSex(); break;
-				default:
-					
-					int year = Integer.parseInt(field);
-					dataToCheck = 0;
-					for(TupleData index : this.getIndexes())
-					{
-						if(index.getYear() == year)
-						{
-							dataToCheck = index.getValue();
-							break;
-						}
-					}
-					break;
-			}
-			
-			
-			
+				
 			
 			JSONObject filterInfos = (JSONObject)filtersJSON.get(field);
 			
@@ -405,13 +371,13 @@ public class Person {
 			if( t.getYear() == Integer.parseInt((String)variableName) )
 			{
 				if( value instanceof String )
-					return t.getValue() > Double.parseDouble((String)value);
+					return t.getValue() < Double.parseDouble((String)value);
 					
 				if( value instanceof Long)
-					return t.getValue() > (Long)value;
+					return t.getValue() < (Long)value;
 					
 				if(value instanceof Double )
-					return t.getValue() > (Double)value;
+					return t.getValue() < (Double)value;
 				
 				return false;
 			}
@@ -489,13 +455,13 @@ public class Person {
 			if( t.getYear() == Integer.parseInt((String)variableName) )
 			{
 				if( value instanceof String )
-					return t.getValue() > Double.parseDouble((String)value);
+					return t.getValue() == Double.parseDouble((String)value);
 					
 				if( value instanceof Long)
-					return t.getValue() > (Long)value;
+					return t.getValue() == (Long)value;
 					
 				if(value instanceof Double )
-					return t.getValue() > (Double)value;
+					return t.getValue() == (Double)value;
 				
 				return false;
 			}
