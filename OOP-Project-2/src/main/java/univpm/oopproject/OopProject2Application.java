@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Classe principale di avvio del progetto Spring
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 @RestController
@@ -28,7 +28,7 @@ public class OopProject2Application {
 
 	/**
 	 * Metodo di avvio del progetto.
-	 * @param args
+	 * @param args Argomenti del programma
 	 */
 	public static void main(String[] args)
 	{

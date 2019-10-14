@@ -14,7 +14,7 @@ import univpm.oopproject.utils.Utils;
 
 /**
  * Classe che contiene i dati di ogni persona.
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public class Person {
@@ -40,23 +40,23 @@ public class Person {
 	/**
 	 * Metodo che aggiunge la coppia anno-valore 
 	 * all'interno della classe "Persona".
-	 * @param t Coppia anno-valore
+	 * @param t Coppia anno-valore.
 	 */
 	public void addIndexes(TupleData t) {
 		indexes.add(t);
 	}
 
-/**
- * Metodo che ritorna wstatus.
- * @return wstatus
- */
+	/**
+	 * Metodo che ritorna wstatus.
+	 * @return wstatus
+	 */
 	public String getWstatus() {
 		return wstatus;
 	}
 
 	/**
 	 * Metodo che imposta wstatus.
-	 * @param wstatus
+	 * @param wstatus Working status.
 	 */
 	public void setWstatus(String wstatus) {
 		this.wstatus = wstatus;
@@ -72,7 +72,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta indic_il.
-	 * @param indic_il
+	 * @param indic_il IndicIl.
 	 */
 	public void setIndic_il(String indic_il) {
 		this.indic_il = indic_il;
@@ -88,7 +88,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta sex.
-	 * @param sex
+	 * @param sex Sex.
 	 */
 	public void setSex(char sex) {
 		this.sex = sex;
@@ -104,7 +104,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta etamax.
-	 * @param etaMax
+	 * @param etaMax Età massima.
 	 */
 	public void setEtaMax(int etaMax) {
 		this.etaMax = etaMax;
@@ -121,7 +121,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta etamin.
-	 * @param etaMin
+	 * @param etaMin Età minima.
 	 */
 	public void setEtaMin(int etaMin) {
 		this.etaMin = etaMin;
@@ -138,7 +138,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta country.
-	 * @param country
+	 * @param country Country.
 	 */
 	public void setCountry(String country) {
 		this.country = country;
@@ -154,7 +154,7 @@ public class Person {
 
 	/**
 	 * Metodo che imposta la lista di coppie anno-valore.
-	 * @param indexes
+	 * @param indexes Lista coppie anno-valore.
 	 */
 	public void setIndexes(List<TupleData> indexes) {
 		this.indexes = indexes;
@@ -179,7 +179,7 @@ public class Person {
 	
 	/**
 	 * Metodo che restituisce il range di età.
-	 * @return
+	 * @return EtàRange
 	 */
 	public String getEtaRange()
 	{
@@ -189,8 +189,8 @@ public class Person {
 	/**
 	 * Metodo che permette di applicare
 	 * dei filtri all'oggetto "Persona" corrente.
-	 * @param filtersJSON filtri in formato JSON
-	 * @return true se l'oggetto rispetta i filtri applicati
+	 * @param filtersJSON filtri in formato JSON.
+	 * @return true se l'oggetto rispetta i filtri applicati.
 	 */
 	public boolean applyFilter(JSONObject filtersJSON)
 	{
@@ -386,9 +386,9 @@ public class Person {
 	/**
 	 * Metodo che controlla se una determina variabile
 	 * ha un valore maggiore del valore passato come parametro.
-	 * @param variableName nome della variabile con la quale effettuare il confronto 
-	 * @param value valore con il quale fare il confronto
-	 * @return true se la condizione è soddifatta 
+	 * @param variableName nome della variabile con la quale effettuare il confronto.
+	 * @param value valore con il quale fare il confronto.
+	 * @return true se la condizione è soddifatta.
 	 */
 	private boolean checkGreaterValueByVariableName(String variableName, Object value)
 	{
@@ -425,9 +425,9 @@ public class Person {
 	/**
 	 * Metodo che controlla se una determina variabile
 	 *  ha un valore minore del valore passato come parametro.
-	 * @param variableName nome della variabile con la quale effettuare il confronto
-	 * @param value valore con il quale fare il confronto
-	 * @return true se la condizione è soddifatta 
+	 * @param variableName nome della variabile con la quale effettuare il confronto.
+	 * @param value valore con il quale fare il confronto.
+	 * @return true se la condizione è soddifatta.
 	 */
 	private boolean checkLowerValueByVariableName(String variableName, Object value)
 	{
@@ -464,10 +464,10 @@ public class Person {
 	/**
 	 * Metodo che controlla se una determina variabile
 	 * ha un valore compreso tra i valori passati come parametri.
-	 * @param variableName nome della variabile con la quale effettuare il confronto
-	 * @param min valore minore con la quale fare il confronto
-	 * @param max valore maggiore con la quale fare il confronto
-	 * @return true se la condizione è soddifatta 
+	 * @param variableName nome della variabile con la quale effettuare il confronto.
+	 * @param min valore minore con la quale fare il confronto.
+	 * @param max valore maggiore con la quale fare il confronto.
+	 * @return true se la condizione è soddifatta.
 	 */
 	private boolean checkValueBetweenByVariableName(String variableName, Object min, Object max)
 	{
@@ -480,9 +480,9 @@ public class Person {
 	/**
 	 * Metodo che controlla se la determinata varibile che passo come argomento
 	 * si trov all'interno dell'array che gli passo come argomento.
-	 * @param variableName nome della variabile con la quale effettuare il controllo
-	 * @param values valore con il quale devo effettuare il controllo
-	 * @return true se la condizione è soddifatta 
+	 * @param variableName nome della variabile con la quale effettuare il controllo.
+	 * @param values valore con il quale devo effettuare il controllo.
+	 * @return true se la condizione è soddifatta.
 	 */
 	private boolean checkContainsValueByVariableName(String variableName, Object values)
 	{
@@ -515,9 +515,9 @@ public class Person {
 	/**
 	 * Metodo che controlla se la variabile ha valore 
 	 * uguale all'attributo passatogli come argomento.
-	 * @param variableName nome della variabile con la quale effettuare il controllo
-	 * @param value valore dell'attibuto
-	 * @return true se la condizione è soddisfatta
+	 * @param variableName nome della variabile con la quale effettuare il controllo.
+	 * @param value valore dell'attibuto.
+	 * @return true se la condizione è soddisfatta.
 	 */
 	private boolean checkEqualValueByVariableName(String variableName, Object value)
 	{

@@ -16,7 +16,7 @@ import univpm.oopproject.dataset.Dataset;
 
 /**
  * Classe astratta (non istanziabile) per le funzioni di utilizzo generale
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public abstract class Utils {

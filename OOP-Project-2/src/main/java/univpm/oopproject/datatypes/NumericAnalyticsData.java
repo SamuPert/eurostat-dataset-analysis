@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Classe utilizzata per la gestione dei dati analitici.
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public class NumericAnalyticsData

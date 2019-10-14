@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * Classe utilizzata per la gestione dei dati letti dal dataset TSV.
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public abstract class Dataset {
@@ -196,6 +196,7 @@ public abstract class Dataset {
 	/**
 	 * Metodo che restituisce l'anno più piccolo dai metadati di un 
 	 * sottoinsieme del dataset.
+	 * @param dataset Lista di persone.
 	 * @return Anno minimo dai metadati.
 	 */
 	public static int getAnnoMinimo( List<Person> dataset )
@@ -224,6 +225,7 @@ public abstract class Dataset {
 	/**
 	 * Metodo che restituisce l'anno più grande dai metadati di un 
 	 * sottoinsieme del dataset.
+	 * @param dataset Lista di persone.
 	 * @return Anno massimo dai metadati.
 	 */
 	public static int getAnnoMassimo( List<Person> dataset )

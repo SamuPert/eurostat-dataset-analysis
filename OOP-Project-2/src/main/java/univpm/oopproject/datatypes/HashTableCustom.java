@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 
 /**
  * Classe personalizzata per una gestione ottimizzata della HashTable. 
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  * @param <K> Chiave
  * @param <V> Valore

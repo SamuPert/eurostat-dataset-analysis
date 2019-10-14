@@ -2,7 +2,7 @@ package univpm.oopproject.utils;
 
 /**
  * Classe astratta che contiene le stringhe di configurazione.
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public abstract class Configurations

@@ -2,7 +2,7 @@ package univpm.oopproject.datatypes;
 
 /**
  * Classe che contiene una coppia anno-valore.
- * @author Samuele Perticarari & Martina Rossi
+ * @author Samuele Perticarari e Martina Rossi
  *
  */
 public class TupleData {
