@@ -12,98 +12,157 @@ import org.json.simple.JSONObject;
 import univpm.oopproject.dataset.Dataset;
 import univpm.oopproject.utils.Utils;
 
+/**
+ * Classe che contiene i dati di ogni persona.
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ */
 public class Person {
 	
 	public String wstatus;
 	public String indic_il;
 	public char sex;
-	private int etaMax = 0;
-	private int etaMin = 0;
+	private int etaMax;
+	private int etaMin;
 	public String etaRange;
 	public String country;
 	public List<TupleData> indexes;
 	
+	/**
+	 * Costruttore della classe persona.
+	 */
 	public Person() {
 		indexes = new ArrayList<TupleData>();
+		etaMax = 0;
+		etaMin = 0;
 	}
 	
-	
+	/**
+	 * Metodo che aggiunge la coppia anno-valore 
+	 * all'interno della classe "Persona".
+	 * @param t Coppia anno-valore
+	 */
 	public void addIndexes(TupleData t) {
 		indexes.add(t);
 	}
 
-
+/**
+ * Metodo che ritorna wstatus.
+ * @return wstatus
+ */
 	public String getWstatus() {
 		return wstatus;
 	}
 
-
+	/**
+	 * Metodo che imposta wstatus.
+	 * @param wstatus
+	 */
 	public void setWstatus(String wstatus) {
 		this.wstatus = wstatus;
 	}
 
-
+	/**
+	 * Metodo che ritorna indic_il.
+	 * @return inidic_il
+	 */
 	public String getIndic_il() {
 		return indic_il;
 	}
 
-
+	/**
+	 * Metodo che imposta indic_il.
+	 * @param indic_il
+	 */
 	public void setIndic_il(String indic_il) {
 		this.indic_il = indic_il;
 	}
 
-
+	/**
+	 * Metodo che ritorna sex.
+	 * @return sex
+	 */
 	public char getSex() {
 		return sex;
 	}
 
-
+	/**
+	 * Metodo che imposta sex.
+	 * @param sex
+	 */
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
 
-
+	/**
+	 * Metodo che ritorna etamax.
+	 * @return etaMax
+	 */
 	public int getEtaMax() {
 		return etaMax;
 	}
 
-
+	/**
+	 * Metodo che imposta etamax.
+	 * @param etaMax
+	 */
 	public void setEtaMax(int etaMax) {
 		this.etaMax = etaMax;
 		this.setEtaRange();
 	}
 
-
+	/**
+	 * Metodo che restituisce etamin.
+	 * @return etaMin
+	 */
 	public int getEtaMin() {
 		return etaMin;
 	}
 
-
+	/**
+	 * Metodo che imposta etamin.
+	 * @param etaMin
+	 */
 	public void setEtaMin(int etaMin) {
 		this.etaMin = etaMin;
 		this.setEtaRange();
 	}
 
-
+	/**
+	 * Metodo che restituisce country.
+	 * @return country
+	 */
 	public String getCountry() {
 		return country;
 	}
 
-
+	/**
+	 * Metodo che imposta country.
+	 * @param country
+	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
-
+	/**
+	 * Metodo che restituisce la lista di coppie anno-valore.
+	 * @return Lista di coppie anno-valore
+	 */
 	public List<TupleData> getIndexes() {
 		return indexes;
 	}
 
-
+	/**
+	 * Metodo che imposta la lista di coppie anno-valore.
+	 * @param indexes
+	 */
 	public void setIndexes(List<TupleData> indexes) {
 		this.indexes = indexes;
 	}
 	
+	/**
+	 * Metodo che permette di impostare un range di età. 
+	 */
 	private void setEtaRange()
 	{
 	
@@ -118,11 +177,21 @@ public class Person {
 	
 	}
 	
+	/**
+	 * Metodo che restituisce il range di età.
+	 * @return
+	 */
 	public String getEtaRange()
 	{
 		return this.etaRange;
 	}
 
+	/**
+	 * Metodo che permette di applicare
+	 * dei filtri all'oggetto "Persona" corrente.
+	 * @param filtersJSON filtri in formato JSON
+	 * @return true se l'oggetto rispetta i filtri applicati
+	 */
 	public boolean applyFilter(JSONObject filtersJSON)
 	{
 		// For each column apply filter
@@ -140,13 +209,6 @@ public class Person {
 			// For each filter apply filter
 			for(Object filterType : filterInfos.keySet() )
 			{
-				
-				// JSONObject realFilter = (JSONObject) filterInfos.get( filterType );
-				
-				// For each 
-				//for(Object filterType : realFilter.keySet() )
-				//{
-				
 				String filter = (String)filterType;
 					
 				JSONArray filterRange, filterArray;
@@ -321,7 +383,13 @@ public class Person {
 		return true;
 	}
 
-	
+	/**
+	 * Metodo che controlla se una determina variabile
+	 * ha un valore maggiore del valore passato come parametro.
+	 * @param variableName nome della variabile con la quale effettuare il confronto 
+	 * @param value valore con il quale fare il confronto
+	 * @return true se la condizione è soddifatta 
+	 */
 	private boolean checkGreaterValueByVariableName(String variableName, Object value)
 	{
 		int annoMinimo = Dataset.getAnnoMinimo();
@@ -354,6 +422,13 @@ public class Person {
 		return false;
 	}
 	
+	/**
+	 * Metodo che controlla se una determina variabile
+	 *  ha un valore minore del valore passato come parametro.
+	 * @param variableName nome della variabile con la quale effettuare il confronto
+	 * @param value valore con il quale fare il confronto
+	 * @return true se la condizione è soddifatta 
+	 */
 	private boolean checkLowerValueByVariableName(String variableName, Object value)
 	{
 		int annoMinimo = Dataset.getAnnoMinimo();
@@ -386,6 +461,14 @@ public class Person {
 		return false;
 	}
 	
+	/**
+	 * Metodo che controlla se una determina variabile
+	 * ha un valore compreso tra i valori passati come parametri.
+	 * @param variableName nome della variabile con la quale effettuare il confronto
+	 * @param min valore minore con la quale fare il confronto
+	 * @param max valore maggiore con la quale fare il confronto
+	 * @return true se la condizione è soddifatta 
+	 */
 	private boolean checkValueBetweenByVariableName(String variableName, Object min, Object max)
 	{
 		return     this.checkGreaterValueByVariableName(variableName, min)
@@ -394,6 +477,13 @@ public class Person {
 				&& this.checkEqualValueByVariableName(variableName, max);
 	}
 	
+	/**
+	 * Metodo che controlla se la determinata varibile che passo come argomento
+	 * si trov all'interno dell'array che gli passo come argomento.
+	 * @param variableName nome della variabile con la quale effettuare il controllo
+	 * @param values valore con il quale devo effettuare il controllo
+	 * @return true se la condizione è soddifatta 
+	 */
 	private boolean checkContainsValueByVariableName(String variableName, Object values)
 	{
 		List<String> validFields = new ArrayList<String>();
@@ -422,7 +512,13 @@ public class Person {
 		
 		return false;
 	}
-	
+	/**
+	 * Metodo che controlla se la variabile ha valore 
+	 * uguale all'attributo passatogli come argomento.
+	 * @param variableName nome della variabile con la quale effettuare il controllo
+	 * @param value valore dell'attibuto
+	 * @return true se la condizione è soddisfatta
+	 */
 	private boolean checkEqualValueByVariableName(String variableName, Object value)
 	{
 		int annoMinimo = Dataset.getAnnoMinimo();
