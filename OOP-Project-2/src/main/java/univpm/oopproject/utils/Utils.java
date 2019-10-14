@@ -1,5 +1,10 @@
 package univpm.oopproject.utils;
 
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -262,5 +267,35 @@ public abstract class Utils {
 			validFields.add( String.valueOf(w1) );	
 		}
 		return validFields;
+	}
+	
+	public static void downloadDataset()
+	{
+		try
+		{
+			byte buffer[] = new byte[1024];
+		    int bytesRead;
+		    
+		    System.out.println("SCARICO IL DATASET..");
+			
+			InputStream datasetStream = new URL( Configurations.FILE_URL ).openStream();
+			BufferedInputStream inputStream = new BufferedInputStream( datasetStream  );
+			
+			FileOutputStream fileOutputStream = new FileOutputStream( Configurations.FILE_NAME );
+			
+		    while ((bytesRead = inputStream.read(buffer, 0, 1024)) != -1) {
+		        fileOutputStream.write(buffer, 0, bytesRead);
+		    }
+		    
+		    datasetStream.close();
+		    fileOutputStream.close();
+		    inputStream.close();
+			
+		    System.out.println("DATASET SCARICATO..");
+		} catch (IOException e)
+		{
+			System.err.println("Errore nel download del file...");
+			System.exit(-1);
+		}
 	}
 }

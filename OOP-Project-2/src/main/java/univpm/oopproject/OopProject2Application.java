@@ -13,60 +13,50 @@ import org.springframework.web.bind.annotation.RestController;
 
 import univpm.oopproject.dataset.Dataset;
 import univpm.oopproject.utils.Configurations;
+import univpm.oopproject.utils.Utils;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Classe principale di avvio del progetto Spring
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ */
 @RestController
 @SpringBootApplication
 public class OopProject2Application {
 
-	public static void main(String[] args) {
+	/**
+	 * Metodo di avvio del progetto.
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
 		
+		Utils.downloadDataset();
 		
-		try
-		{
-			byte buffer[] = new byte[1024];
-		    int bytesRead;
-		    
-		    System.out.println("SCARICO IL DATASET..");
-			
-			InputStream datasetStream = new URL( Configurations.FILE_URL ).openStream();
-			BufferedInputStream inputStream = new BufferedInputStream( datasetStream  );
-			
-			FileOutputStream fileOutputStream = new FileOutputStream( Configurations.FILE_NAME );
-			
-		    while ((bytesRead = inputStream.read(buffer, 0, 1024)) != -1) {
-		        fileOutputStream.write(buffer, 0, bytesRead);
-		    }
-		    
-		    datasetStream.close();
-		    fileOutputStream.close();
-		    inputStream.close();
-			
-		    System.out.println("DATASET SCARICATO..");
-		} catch (IOException e)
-		{
-			System.err.println("Errore nel download del file...");
-			System.exit(-1);
-		}
+		// Carica e parsa il dataset in memoria.
+		Dataset.loadAndParseDataset( Configurations.FILE_NAME );
 		
-		Dataset.LoadAndParseDataset( Configurations.FILE_NAME );
-		
+		// Lancia il web-server Spring.
 		SpringApplication.run(OopProject2Application.class, args);
 		
 	}
 
-
+	/**
+	 * Metodo che restituisce le informazioni sui Bean caricati dal programma.
+	 * @param ctx Contesto applicazione
+	 * @return Argomenti per il Bean di Spring
+	 */
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
 
-            System.out.println("Let's inspect the beans provided by Spring Boot:");
-
+            System.out.println("Beans provided by Spring Boot:");
             String[] beanNames = ctx.getBeanDefinitionNames();
             Arrays.sort(beanNames);
             for (String beanName : beanNames) {
-                System.out.println(beanName);
+                System.out.println("- " + beanName);
             }
 
         };

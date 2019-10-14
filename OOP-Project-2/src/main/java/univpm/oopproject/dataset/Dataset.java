@@ -67,7 +67,7 @@ public abstract class Dataset {
 		return datasetJSONObj;
 	}
 	
-	public static void LoadAndParseDataset( String filename )
+	public static void loadAndParseDataset( String filename )
 	{
 		System.out.println("PARSING DEL FILE \""+filename+"\".");
 		// INIZIO PARSING
