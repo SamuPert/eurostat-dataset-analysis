@@ -15,14 +15,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Classe utilizzata per la gestione dei dati letti dal dataset TSV.
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ */
 public abstract class Dataset {
 
 	private static List<Person> data = new ArrayList<Person>();
-	
+
+	/**
+	 * Metodo per aggiungere i dati di una nuova persona alla lista.
+	 * @param p Dati della nuova persona da aggiungere alla lista.
+	 */
 	public static void addPerson(Person p) {
 		data.add(p);
 	}
 	
+	/**
+	 * Metodo utilizzato per la restituzione dei dati delle persone
+	 * in formato JSON.
+	 * @return Dati delle persone in formato JSON.
+	 */
 	@SuppressWarnings("unchecked")
 	public static JSONObject getJSONDataset()
 	{
@@ -33,8 +47,8 @@ public abstract class Dataset {
 		{
 			JSONObject personDataObj = new JSONObject();
 			
-			personDataObj.put("WorkingStatus", p.getWstatus() );
-			personDataObj.put("Indic_Il", p.getIndic_il() );
+			personDataObj.put("Wstatus", p.getWstatus() );
+			personDataObj.put("IndicIl", p.getIndic_il() );
 			personDataObj.put("Sex", p.getSex() );
 			
 			if(p.getEtaMax() >= 0 && p.getEtaMin() >= 0)
@@ -54,19 +68,23 @@ public abstract class Dataset {
 				dataObj.put(td.getYear(), td.getValue());				
 			}
 			
-			personDataObj.put("Data", dataObj );
+			personDataObj.put("Dati", dataObj );
 			
 			datasetJSON.add(personDataObj);	
 		}
 		
 		
-		datasetJSONObj.put("PeopleData", datasetJSON);
-		datasetJSONObj.put("Count", Dataset.getDataset().size() );
-		datasetJSONObj.put("Success", true);
+		datasetJSONObj.put("DatiPersone", datasetJSON);
+		datasetJSONObj.put("Conteggio", Dataset.getDataset().size() );
+		datasetJSONObj.put("Successo", true);
 		
 		return datasetJSONObj;
 	}
 	
+	/**
+	 * Metodo che carica in memoria e parsa i dati dal file TSV appena scaricato.
+	 * @param filename File di cui fare il parsing.
+	 */
 	public static void loadAndParseDataset( String filename )
 	{
 		System.out.println("PARSING DEL FILE \""+filename+"\".");
@@ -157,15 +175,29 @@ public abstract class Dataset {
 		// FINE PARSING
 	}
 
+	/**
+	 * Metodo che resituisce la lista di dati delle persone inserite.
+	 * @return La Lista di persone nel dataset.
+	 */
 	public static List<Person> getDataset() {
 		return data;
 	}
 	
+	/**
+	 * Metodo che restituisce l'anno più piccolo dai metadati 
+	 * del dataset principale. 
+	 * @return Anno minimo dai metadati.
+	 */
 	public static int getAnnoMinimo()
 	{
 		return Dataset.getAnnoMinimo( Dataset.getDataset() );
 	}
 	
+	/**
+	 * Metodo che restituisce l'anno più piccolo dai metadati di un 
+	 * sottoinsieme del dataset.
+	 * @return Anno minimo dai metadati.
+	 */
 	public static int getAnnoMinimo( List<Person> dataset )
 	{
 		int annoMinimo = 3000;
@@ -179,11 +211,21 @@ public abstract class Dataset {
 		return annoMinimo;
 	}
 	
+	/**
+	 * Metodo che restituisce l'anno più grande dai metadati 
+	 * del dataset principale. 
+	 * @return Anno massimo dai metadati.
+	 */
 	public static int getAnnoMassimo()
 	{
 		return Dataset.getAnnoMassimo( Dataset.getDataset() );
 	}
 	
+	/**
+	 * Metodo che restituisce l'anno più grande dai metadati di un 
+	 * sottoinsieme del dataset.
+	 * @return Anno massimo dai metadati.
+	 */
 	public static int getAnnoMassimo( List<Person> dataset )
 	{
 		int annoMassimo = 0;		
@@ -196,6 +238,13 @@ public abstract class Dataset {
 		return annoMassimo;
 	}
 	
+	/**
+	 * Analizza la lista di persone passatagli come parametro
+	 * restituendone un'analisi statistica dei dati e degli 
+	 * attributi.
+	 * @param dataset Lista di persone da analizzare.
+	 * @return JSON contentente la statistica sui dati.
+	 */
 	public static JSONObject analyzeDataset( List<Person> dataset )
 	{
 		if( dataset.size() == 0 )
@@ -252,25 +301,25 @@ public abstract class Dataset {
 		JSONObject etaRangeJSONData = new JSONObject();
 		JSONObject countryJSONData = new JSONObject();
 		
-		wstatusJSONData.put("Field", "Wstatus");
-		wstatusJSONData.put("Data", workingStatusHashTable.getJSONValues() );
-		wstatusJSONData.put("Type", "String" );
+		wstatusJSONData.put("Attributo", "Wstatus");
+		wstatusJSONData.put("Dati", workingStatusHashTable.getJSONValues() );
+		wstatusJSONData.put("TipoDato", "String" );
 
-		indicIlJSONData.put("Field", "IndicIl");
-		indicIlJSONData.put("Data", indicIlHashTable.getJSONValues() );
-		indicIlJSONData.put("Type", "String" );
+		indicIlJSONData.put("Attributo", "IndicIl");
+		indicIlJSONData.put("Dati", indicIlHashTable.getJSONValues() );
+		indicIlJSONData.put("TipoDato", "String" );
 
-		sexJSONData.put("Field", "Sex");
-		sexJSONData.put("Data", sexHashTable.getJSONValues() );
-		sexJSONData.put("Type", "String" );
+		sexJSONData.put("Attributo", "Sex");
+		sexJSONData.put("Dati", sexHashTable.getJSONValues() );
+		sexJSONData.put("TipoDato", "String" );
 
-		etaRangeJSONData.put("Field", "EtaRange");
-		etaRangeJSONData.put("Data", etaRangeHashTable.getJSONValues() );
-		etaRangeJSONData.put("Type", "String" );
+		etaRangeJSONData.put("Attributo", "EtaRange");
+		etaRangeJSONData.put("Dati", etaRangeHashTable.getJSONValues() );
+		etaRangeJSONData.put("TipoDato", "String" );
 
-		countryJSONData.put("Field", "Country");
-		countryJSONData.put("Data", countryHashTable.getJSONValues() );
-		countryJSONData.put("Type", "String" );
+		countryJSONData.put("Attributo", "Country");
+		countryJSONData.put("Dati", countryHashTable.getJSONValues() );
+		countryJSONData.put("TipoDato", "String" );
 
 		analyticsData.add( wstatusJSONData );
 		analyticsData.add( indicIlJSONData );
@@ -283,21 +332,21 @@ public abstract class Dataset {
 		{
 			JSONObject dataObject = new JSONObject();
 			JSONObject jdata = new JSONObject();
-			dataObject.put("Field", String.valueOf( i + annoMinimo ) );
-			jdata.put("Sum", nad[i].getSum() );
-			jdata.put("Count", nad[i].getCount() );
-			jdata.put("Avg", nad[i].getAvg() );
-			jdata.put("Min", nad[i].getMin() );
-			jdata.put("Max", nad[i].getMax() );
-			jdata.put("Devstd", nad[i].getDevstd() );
+			dataObject.put("Attributo", String.valueOf( i + annoMinimo ) );
+			jdata.put("Somma", nad[i].getSum() );
+			jdata.put("Conteggio", nad[i].getCount() );
+			jdata.put("Media", nad[i].getAvg() );
+			jdata.put("Minimo", nad[i].getMin() );
+			jdata.put("Massimo", nad[i].getMax() );
+			jdata.put("DeviazioneStandard", nad[i].getDevstd() );
 			
-			dataObject.put("Data", jdata);
-			dataObject.put("Type", "Numeric");
+			dataObject.put("Dati", jdata);
+			dataObject.put("TipoDato", "Numeric");
 			analyticsData.add(dataObject);
 		}
 					
 		
-		analytics.put("Data", analyticsData);
+		analytics.put("Dati", analyticsData);
 		return analytics;
 	
 	}

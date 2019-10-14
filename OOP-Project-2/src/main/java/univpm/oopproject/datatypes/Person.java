@@ -130,7 +130,7 @@ public class Person {
 		{
 			String field = (String)keyFieldObj;
 			
-			List<String> validFields = Utils.getValidFilters();
+			List<String> validFields = Utils.getValidFields();
 			
 			if( !validFields.contains( field ) ) return false;
 				

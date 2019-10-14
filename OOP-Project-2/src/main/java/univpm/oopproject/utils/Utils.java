@@ -13,27 +13,38 @@ import org.json.simple.JSONObject;
 
 import univpm.oopproject.dataset.Dataset;
 
+
+/**
+ * Classe astratta (non istanziabile) per le funzioni di utilizzo generale
+ * @author Samuele Perticarari & Martina Rossi
+ *
+ */
 public abstract class Utils {
 
-	public static JSONObject isFilterValid( JSONObject filtersJSON )
+	/**
+	 * Metodo che controlla la validità di un filtro in JSON.
+	 * @param filtroJSON Filtro in formato JSON.
+	 * @return Restituisce true se il filtro è valido, altrimenti false.
+	 */
+	public static JSONObject isFilterValid( JSONObject filtroJSON )
 	{
 		int annoMinimo = Dataset.getAnnoMinimo();
 		int annoMassimo = Dataset.getAnnoMassimo();
 		
-		List<String> validFields = Utils.getValidFilters();
+		List<String> validFields = Utils.getValidFields();
 		
 		JSONObject dataFilteredJSON = new JSONObject();
 		
 		// Validate JSON input
-		Object[] keys = filtersJSON.keySet().toArray();
+		Object[] keys = filtroJSON.keySet().toArray();
 		for( int i = 0; i < keys.length; i++ )
 		{
 			Object k = keys[i];
 			
 			if(! (k instanceof String ) )
 			{
-				dataFilteredJSON.put("Error", "Almeno una chiave dell'oggetto non è valida.");
-				dataFilteredJSON.put("InvalidKey", k);
+				dataFilteredJSON.put("Errore", "Almeno una chiave dell'oggetto non è valida.");
+				dataFilteredJSON.put("ChiaveNonValida", k);
 				return dataFilteredJSON;
 			}
 
@@ -45,12 +56,12 @@ public abstract class Utils {
 				if( annoMinimo <= number_key && number_key <= annoMassimo )
 				{
 					// OK, Valid key. Check if argument is valid.
-					Object obj = filtersJSON.get(k);
+					Object obj = filtroJSON.get(k);
 					
 					if(!( obj instanceof JSONObject) )
 					{
-						dataFilteredJSON.put("Error", "Filtro non valido.");
-						dataFilteredJSON.put("InvalidKey", obj);
+						dataFilteredJSON.put("Errore", "Filtro non valido.");
+						dataFilteredJSON.put("ChiaveNonValida", obj);
 						return dataFilteredJSON;
 					}
 					
@@ -64,8 +75,8 @@ public abstract class Utils {
 						
 						if(! (kInner instanceof String ) )	
 						{
-							dataFilteredJSON.put("Error", "Almeno una chiave dell'oggetto non è valida.");
-							dataFilteredJSON.put("InvalidKey", kInner);
+							dataFilteredJSON.put("Errore", "Almeno una chiave dell'oggetto non è valida.");
+							dataFilteredJSON.put("ChiaveNonValida", kInner);
 							return dataFilteredJSON;
 						}
 						String keyInnerString = (String)kInner;
@@ -77,8 +88,8 @@ public abstract class Utils {
 							case "$lte":
 								if( !( filterJson.get(kInner) instanceof Double || filterJson.get(kInner) instanceof Long) )
 								{
-									dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
-									dataFilteredJSON.put("InvalidFilter", filterJson.get(kInner));
+									dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
+									dataFilteredJSON.put("ChiaveNonValida", filterJson.get(kInner));
 									return dataFilteredJSON;									
 								}
 								continue;
@@ -99,20 +110,20 @@ public abstract class Utils {
 									{
 										continue;
 									}
-									dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
-									dataFilteredJSON.put("InvalidFilter", filterJson.get(kInner));
+									dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
+									dataFilteredJSON.put("ChiaveNonValida", filterJson.get(kInner));
 									return dataFilteredJSON;	
 								}
 
-								dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
-								dataFilteredJSON.put("InvalidFilter", filterJson.get(kInner));
+								dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
+								dataFilteredJSON.put("ChiaveNonValida", filterJson.get(kInner));
 								return dataFilteredJSON;									
 								
 
 								
 							default:
-								dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" al campo \""+fieldFilterAttribute+"\".");
-								dataFilteredJSON.put("InvalidFilter", keyInnerString);
+								dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" al campo \""+fieldFilterAttribute+"\".");
+								dataFilteredJSON.put("ChiaveNonValida", keyInnerString);
 								return dataFilteredJSON;
 						}
 					}
@@ -127,15 +138,15 @@ public abstract class Utils {
 				case "$and":
 					// {"$or": [{"status": "GOLD"}, {"status": "SILVER"}]}
 					JSONArray filterJsonArr;
-					if(! (filtersJSON.get(k) instanceof JSONArray ) )	
+					if(! (filtroJSON.get(k) instanceof JSONArray ) )	
 					{
-						dataFilteredJSON.put("Error", "Almeno un valore dell'oggetto non è valido.");
-						dataFilteredJSON.put("InvalidKey", filtersJSON.get(k));
+						dataFilteredJSON.put("Errore", "Almeno un valore dell'oggetto non è valido.");
+						dataFilteredJSON.put("ChiaveNonValida", filtroJSON.get(k));
 						return dataFilteredJSON;
 					}
 					
 					
-					filterJsonArr = (JSONArray) filtersJSON.get(k);
+					filterJsonArr = (JSONArray) filtroJSON.get(k);
 					
 					Object[] elementsInner = filterJsonArr.toArray();
 					for( int j = 0; j < elementsInner.length; j++ )
@@ -144,8 +155,8 @@ public abstract class Utils {
 						JSONObject innerElement;
 						if(! (elementInner instanceof JSONObject ) )	
 						{
-							dataFilteredJSON.put("Error", "Almeno un valore dell'oggetto non è valido.");
-							dataFilteredJSON.put("InvalidKey", elementInner);
+							dataFilteredJSON.put("Errore", "Almeno un valore dell'oggetto non è valido.");
+							dataFilteredJSON.put("ChiaveNonValida", elementInner);
 							return dataFilteredJSON;
 						}
 						
@@ -156,7 +167,7 @@ public abstract class Utils {
 						{
 							if(! (keysInner[w] instanceof String ) )	
 							{
-								dataFilteredJSON.put("Error", "Almeno una chiave dell'oggetto non è valida.");
+								dataFilteredJSON.put("Errore", "Almeno una chiave dell'oggetto non è valida.");
 								dataFilteredJSON.put("InvalidKey", keysInner);
 								return dataFilteredJSON;
 							}
@@ -164,8 +175,8 @@ public abstract class Utils {
 							
 							if( ! validFields.contains(keysInner) )
 							{
-								dataFilteredJSON.put("Error", "Chiave dell'oggetto non presente tra gli attributi.");
-								dataFilteredJSON.put("InvalidKey", keysInner);
+								dataFilteredJSON.put("Errore", "Chiave dell'oggetto non presente tra gli attributi.");
+								dataFilteredJSON.put("ChiaveNonValida", keysInner);
 								return dataFilteredJSON;
 							}
 						}
@@ -177,22 +188,15 @@ public abstract class Utils {
 				case "IndicIl":
 				case "Sex":
 				case "EtaRange":
-						// { "wstatus" : {"$not" : "1" } }
-						// {"field" : {"$in" : [value1, value2, ...]}}
-						// {"field" : {"$nin" : [value1, value2, ...]}}
-						// {"field" : {"$or" : [ "A", "B", "C" ]    }}
-						// {"field" : {"$and" : [ "A", "B", "C" ]    }}
-					
-						// OK, Valid key. Check if argument is valid.
 						JSONObject filterJson;
-						if(! (filtersJSON.get(k) instanceof JSONObject ) )	
+						if(! (filtroJSON.get(k) instanceof JSONObject ) )	
 						{
-							dataFilteredJSON.put("Error", "Almeno un valore dell'oggetto non è valido.");
-							dataFilteredJSON.put("InvalidKey", filtersJSON.get(k));
+							dataFilteredJSON.put("Errore", "Almeno un valore dell'oggetto non è valido.");
+							dataFilteredJSON.put("ChiaveNonValida", filtroJSON.get(k));
 							return dataFilteredJSON;
 						}
 						
-						filterJson = (JSONObject) filtersJSON.get(k);
+						filterJson = (JSONObject) filtroJSON.get(k);
 						
 						Object[] keysInner = filterJson.keySet().toArray();
 						for( int j = 0; j < keysInner.length; j++ )
@@ -201,8 +205,8 @@ public abstract class Utils {
 							
 							if(! (kInner instanceof String ) )	
 							{
-								dataFilteredJSON.put("Error", "Almeno una chiave dell'oggetto non è valida.");
-								dataFilteredJSON.put("InvalidKey", kInner);
+								dataFilteredJSON.put("Errore", "Almeno una chiave dell'oggetto non è valida.");
+								dataFilteredJSON.put("ChiaveNonValida", kInner);
 								return dataFilteredJSON;
 							}
 							String keyInnerString = (String)kInner;
@@ -211,8 +215,8 @@ public abstract class Utils {
 								case "$not":
 									if( !( filterJson.get(kInner) instanceof String) )
 									{
-										dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
-										dataFilteredJSON.put("InvalidFilter", filterJson.get(kInner));
+										dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
+										dataFilteredJSON.put("ChiaveNonValida", filterJson.get(kInner));
 										return dataFilteredJSON;									
 									}
 									continue;
@@ -221,15 +225,15 @@ public abstract class Utils {
 								case "$nin":
 									if( !( filterJson.get(kInner) instanceof JSONArray) )
 									{
-										dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
-										dataFilteredJSON.put("InvalidFilter", filterJson.get(kInner));
+										dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" con valore \""+String.valueOf(filterJson.get(kInner))+"\" al campo \""+fieldFilterAttribute+"\".");
+										dataFilteredJSON.put("ChiaveNonValida", filterJson.get(kInner));
 										return dataFilteredJSON;									
 									}
 									continue;
 								
 								default:
-									dataFilteredJSON.put("Error", "Non è possibile applicare il filtro \""+keyInnerString+"\" al campo \""+fieldFilterAttribute+"\".");
-									dataFilteredJSON.put("InvalidFilter", keyInnerString);
+									dataFilteredJSON.put("Errore", "Non è possibile applicare il filtro \""+keyInnerString+"\" al campo \""+fieldFilterAttribute+"\".");
+									dataFilteredJSON.put("ChiaveNonValida", keyInnerString);
 									return dataFilteredJSON;
 							}
 						}
@@ -245,12 +249,16 @@ public abstract class Utils {
 
 		}
 				
-		dataFilteredJSON.put("Success", true);
+		dataFilteredJSON.put("Successo", true);
 		
 		return dataFilteredJSON;
 	}
 
-	public static List<String> getValidFilters()
+	/**
+	 * Metodo che restuisce una lista di campi validi per il filtraggio.
+	 * @return La lista dei campi validi.
+	 */
+	public static List<String> getValidFields()
 	{
 		int annoMinimo = Dataset.getAnnoMinimo();
 		int annoMassimo = Dataset.getAnnoMassimo();
@@ -269,6 +277,10 @@ public abstract class Utils {
 		return validFields;
 	}
 	
+	/**
+	 * Scarica il dataset dall'URL presente nel file Configurations (FILE_URL) 
+	 * e salva il dataset in un file (FILE_NAME).
+	 */
 	public static void downloadDataset()
 	{
 		try
