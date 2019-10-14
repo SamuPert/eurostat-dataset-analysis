@@ -23,13 +23,21 @@ import java.util.Set;
 
 @RestController
 public class MainController {
-    
+   
+	/**
+	 * Metodo che restituisce informazioni sui dati caricati delle persone
+	 * @return Informazione sul numero di dati caricati
+	 */
 	@RequestMapping("/")
-    public JSONObject index()
+    public String index()
     {
-		return Dataset.getJSONDataset();
+		return "Caricati i dati di: " + String.valueOf(Dataset.getDataset().size()) + " persone";
     }
 	
+	/**
+	 * Metodo che restituisce i metadati in formato JSON.
+	 * @return Metadati in formato JSON.
+	 */
 	@RequestMapping("/get/metadata")
     public JSONObject getMetadata()
     {
@@ -46,9 +54,9 @@ public class MainController {
 			{
 				JSONObject classAttributesMetadata = new JSONObject();
 				Field f = fields[i];
-				classAttributesMetadata.put("AccessModifier", Modifier.toString( f.getModifiers() ) );
-				classAttributesMetadata.put("Type", f.getType().getName());
-				classAttributesMetadata.put("Name", f.getName());
+				classAttributesMetadata.put("ModificatoreAccesso", Modifier.toString( f.getModifiers() ) );
+				classAttributesMetadata.put("Tipo", f.getType().getName());
+				classAttributesMetadata.put("Nome", f.getName());
 				arrayOfAttributes.add(classAttributesMetadata);
 			}
 			
@@ -59,24 +67,24 @@ public class MainController {
             	JSONArray classMethodParametersMetadata = new JSONArray();
 				Method method = methods[i];
 				
-				classMethodsMetadata.put("AccessModifier", Modifier.toString( method.getModifiers() ) );
-				classMethodsMetadata.put("ReturnType", method.getGenericReturnType().getTypeName());
-				classMethodsMetadata.put("Name", method.getName() );
+				classMethodsMetadata.put("ModificatoreAccesso", Modifier.toString( method.getModifiers() ) );
+				classMethodsMetadata.put("TipoRitorno", method.getGenericReturnType().getTypeName());
+				classMethodsMetadata.put("Nome", method.getName() );
 
             	for(Type t : method.getGenericParameterTypes() )
             		classMethodParametersMetadata.add( t.getTypeName() );
 
-				classMethodsMetadata.put( "ParameterTypes", classMethodParametersMetadata );
+				classMethodsMetadata.put( "TipiParametri", classMethodParametersMetadata );
 
             	arrayOfMethods.add(classMethodsMetadata);
             }
 			
-			obj.put("Class","Person");
-			obj.put("Attributes",arrayOfAttributes);
-			obj.put("Methods", arrayOfMethods);
+			obj.put("Classe","Person");
+			obj.put("Attributi",arrayOfAttributes);
+			obj.put("Metodi", arrayOfMethods);
 			
 		} catch (IllegalArgumentException e) {
-			obj.put("Error","Illegal argument exception: " + e.getMessage());
+			obj.put("Errore","Argomento non valido: " + e.getMessage());
 		}
 
 		   
@@ -84,18 +92,31 @@ public class MainController {
     	return obj;
     }
 	
+	/**
+	 * Metodo che restituisce i dati in formato JSON.
+	 * @return Dati in formato JSON.
+	 */
 	@RequestMapping( value = "/get/dataset/full", method = RequestMethod.GET, produces="application/json" )
 	public JSONObject getFullData()
 	{
 		return Dataset.getJSONDataset();
-}
+	}
 	
+	/**
+	 * Metodo che restituisce le analisi sui dati JSON
+	 * @return Analisi sui dati JSON.
+	 */
 	@RequestMapping( value = "/get/analytics", method = RequestMethod.GET, produces="application/json" )
 	public JSONObject getAnalytics()
 	{
 		return Dataset.analyzeDataset( Dataset.getDataset() );
 	}
 	
+	/**
+	 * Rotta che mostra i dati recuperati dal CSV, eventulmente filtrati, sotto forma di JSON
+	 * @param filter Filtro riportato nel messaggio della richiesta in formato POST
+	 * @return Restituisce un JSON contenente i dati, eventualmente filtrati
+	 */
 	@RequestMapping( value = "/get/analytics", method = RequestMethod.POST, produces="application/json" )
 	public JSONObject getFilteredAnalytics( @RequestBody(required = false) String filter )
 	{
@@ -114,23 +135,17 @@ public class MainController {
 			filtersJSON = (JSONObject) parser.parse(filter);
 		} catch (ClassCastException e) {
 			dataFilteredJSON = new JSONObject();
-			dataFilteredJSON.put("Error", "Errore nel parsing della richiesta filtro.");
+			dataFilteredJSON.put("Errore", "Errore nel parsing della richiesta filtro.");
 			return dataFilteredJSON;
 		} catch (ParseException e) {
 			dataFilteredJSON = new JSONObject();
-			dataFilteredJSON.put("Error", "Errore nel parsing della richiesta filtro.");
+			dataFilteredJSON.put("Errore", "Errore nel parsing della richiesta filtro.");
 			return dataFilteredJSON;
 		}
 
-		// { "wstatus" : {"$not" : "1" } }
-		// {"field" : {"$in" : [value1, value2, ...]}}
-		// {"field" : {"$nin" : [value1, value2, ...]}}
-		// {"field" : {"$or" : [ "A", "B", "C" ]    }}
-		// {"field" : {"$and" : [ "A", "B", "C" ]    }}
-
 		JSONObject responseValidator = Utils.isFilterValid( filtersJSON );
 		
-		if( ! responseValidator.containsKey("Success") )
+		if( ! responseValidator.containsKey("Successo") )
 			return responseValidator;
 		
 		
@@ -141,14 +156,6 @@ public class MainController {
 			if( p.applyFilter( filtersJSON ) )
 				data.add( p );
 		}
-		
-		
-		
-		
-		System.out.println(data.size());
-		
-		
-		
 		
 		return Dataset.analyzeDataset( data );
 	}
