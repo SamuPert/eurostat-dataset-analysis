@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_UI00wO80Eem0f4CX50V2Gg" name="OOP-Project-2">
+  <elementImport xmi:id="_UT-U0O80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_UT-U0e80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+  </elementImport>
+  <elementImport xmi:id="_UT-U0u80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+  </elementImport>
+  <elementImport xmi:id="_UUDNUO80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+  </elementImport>
+  <elementImport xmi:id="_UUDNUe80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+  </elementImport>
+  <elementImport xmi:id="_UUDNUu80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbcO80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbce80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbcu80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbc-80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbdO80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_UUEbde80Eem0f4CX50V2Gg">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <packageImport xmi:id="_UT1x8O80Eem0f4CX50V2Gg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_UT3AEO80Eem0f4CX50V2Gg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UWZ9wO80Eem0f4CX50V2Gg" name="univpm">
+    <packagedElement xmi:type="uml:Package" xmi:id="_UWZ9we80Eem0f4CX50V2Gg" name="oopproject">
+      <packagedElement xmi:type="uml:Package" xmi:id="_UW67I-80Eem0f4CX50V2Gg" name="controllers">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UXTVoO80Eem0f4CX50V2Gg" name="MainController" visibility="public">
+          <elementImport xmi:id="_UbXWQO80Eem0f4CX50V2Gg" importedElement="_UZsiU-80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWQe80Eem0f4CX50V2Gg" importedElement="_UXmQkO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWQu80Eem0f4CX50V2Gg" importedElement="_UX_5MO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWQ-80Eem0f4CX50V2Gg" importedElement="_UYlIAO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWR-80Eem0f4CX50V2Gg" importedElement="_UbXWRu80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWSe80Eem0f4CX50V2Gg" importedElement="_UbXWSO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWTO80Eem0f4CX50V2Gg" importedElement="_UbXWS-80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbXWTu80Eem0f4CX50V2Gg" importedElement="_UbXWTe80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbcOwe80Eem0f4CX50V2Gg" importedElement="_UbcOwO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD8e80Eem0f4CX50V2Gg" importedElement="_UbeD8O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD8u80Eem0f4CX50V2Gg" importedElement="_UZxa0O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD9O80Eem0f4CX50V2Gg" importedElement="_UbeD8-80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD9u80Eem0f4CX50V2Gg" importedElement="_UbeD9e80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD--80Eem0f4CX50V2Gg" importedElement="_UbeD-u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD_e80Eem0f4CX50V2Gg" importedElement="_UbeD_O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UbeD_-80Eem0f4CX50V2Gg" importedElement="_UbeD_u80Eem0f4CX50V2Gg" visibility="private"/>
+          <packageImport xmi:id="_UbeD-e80Eem0f4CX50V2Gg" importedPackage="_UbeD-O80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedOperation xmi:id="_UbkKkO80Eem0f4CX50V2Gg" name="index" visibility="public">
+            <eAnnotations xmi:id="_UbkKke80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UbkKku80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce informazioni sui dati caricati delle persone&#xD;&#xA; @return Informazione sul numero di dati caricati&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UbkKk-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UbtUgO80Eem0f4CX50V2Gg" name="getMetadata" visibility="public">
+            <eAnnotations xmi:id="_UbtUge80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UbtUgu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce i metadati in formato JSON.&#xD;&#xA; @return Metadati in formato JSON.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UbtUg-80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ub0pQO80Eem0f4CX50V2Gg" name="getFullData" visibility="public">
+            <eAnnotations xmi:id="_Ub0pQe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ub0pQu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce i dati in formato JSON.&#xD;&#xA; @return Dati in formato JSON.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ub0pQ-80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ub9MIO80Eem0f4CX50V2Gg" name="getAnalytics" visibility="public">
+            <eAnnotations xmi:id="_Ub9MIe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ub9MIu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce le analisi sui dati JSON&#xD;&#xA; @return Analisi sui dati JSON.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ub9MI-80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UcQHEO80Eem0f4CX50V2Gg" name="getFilteredAnalytics" visibility="public">
+            <eAnnotations xmi:id="_UcQHEe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UcQHEu80Eem0f4CX50V2Gg" key="documentation" value=" Rotta che mostra i dati recuperati dal CSV, eventulmente filtrati, sotto forma di JSON&#xD;&#xA; @param filter Filtro riportato nel messaggio della richiesta in formato POST&#xD;&#xA; @return Restituisce un JSON contenente i dati, eventualmente filtrati&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UcQHE-80Eem0f4CX50V2Gg" name="filter">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UcQHFO80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulx2gO80Eem0f4CX50V2Gg" name="controllers_reflect" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UbeD-O80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulx2ge80Eem0f4CX50V2Gg" name="controllers_annotation" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UZsiUu80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulx2gu80Eem0f4CX50V2Gg" name="controllers_dataset" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UXTVoe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlydkO80Eem0f4CX50V2Gg" name="controllers_datatypes" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UXnesO80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulydke80Eem0f4CX50V2Gg" name="controllers_utils" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UYfBaO80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulydku80Eem0f4CX50V2Gg" name="controllers_simple" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UbXWRe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ulydk-80Eem0f4CX50V2Gg" name="controllers_parser" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UbXWSu80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlydlO80Eem0f4CX50V2Gg" name="controllers_util" client="_UW67I-80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UW67IO80Eem0f4CX50V2Gg" name="OopProject2Application" visibility="public">
+        <eAnnotations xmi:id="_UW67Ie80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+          <details xmi:id="_UW67Iu80Eem0f4CX50V2Gg" key="documentation" value=" Classe principale di avvio del progetto Spring&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+        </eAnnotations>
+        <elementImport xmi:id="_UZgVEu80Eem0f4CX50V2Gg" importedElement="_UZgVEe80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZgVFe80Eem0f4CX50V2Gg" importedElement="_UZgVFO80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZlNlO80Eem0f4CX50V2Gg" importedElement="_UZlNk-80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZmbse80Eem0f4CX50V2Gg" importedElement="_UZmbsO80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZmbtO80Eem0f4CX50V2Gg" importedElement="_UZmbs-80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZmbt-80Eem0f4CX50V2Gg" importedElement="_UZmbtu80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZmbuu80Eem0f4CX50V2Gg" importedElement="_UZmbue80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZsiVO80Eem0f4CX50V2Gg" importedElement="_UZsiU-80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZsiVe80Eem0f4CX50V2Gg" importedElement="_UXmQkO80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZsiVu80Eem0f4CX50V2Gg" importedElement="_UYxVQO80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZsiV-80Eem0f4CX50V2Gg" importedElement="_UYlIAO80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UZxa0e80Eem0f4CX50V2Gg" importedElement="_UZxa0O80Eem0f4CX50V2Gg" visibility="private"/>
+        <packageImport xmi:id="_UZaOcu80Eem0f4CX50V2Gg" importedPackage="_UZaOce80Eem0f4CX50V2Gg" visibility="private"/>
+        <ownedOperation xmi:id="_UaTmUO80Eem0f4CX50V2Gg" name="main" visibility="public" isStatic="true">
+          <eAnnotations xmi:id="_UaTmUe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UaTmUu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo di avvio del progetto.&#xD;&#xA; @param args Argomenti del programma&#xD;&#xA;&#x9;"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_UaTmU-80Eem0f4CX50V2Gg" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UaTmVO80Eem0f4CX50V2Gg" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Ua-7wO80Eem0f4CX50V2Gg" name="commandLineRunner" visibility="public">
+          <eAnnotations xmi:id="_Ua-7we80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_Ua-7wu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce le informazioni sui Bean caricati dal programma.&#xD;&#xA; @param ctx Contesto applicazione&#xD;&#xA; @return Argomenti per il Bean di Spring&#xD;&#xA;&#x9;"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_Ua-7w-80Eem0f4CX50V2Gg" name="ctx" type="_UZmbtu80Eem0f4CX50V2Gg"/>
+          <ownedParameter xmi:id="_Ua-7xO80Eem0f4CX50V2Gg" type="_UZlNk-80Eem0f4CX50V2Gg" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UXTVoe80Eem0f4CX50V2Gg" name="dataset">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UXmQkO80Eem0f4CX50V2Gg" name="Dataset" visibility="public" isAbstract="true">
+          <eAnnotations xmi:id="_UXmQke80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UXmQku80Eem0f4CX50V2Gg" key="documentation" value=" Classe utilizzata per la gestione dei dati letti dal dataset TSV.&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <elementImport xmi:id="_UdA8Ee80Eem0f4CX50V2Gg" importedElement="_UdA8EO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdA8FO80Eem0f4CX50V2Gg" importedElement="_UYfBYO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdA8Fe80Eem0f4CX50V2Gg" importedElement="_UYF_0O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdA8Fu80Eem0f4CX50V2Gg" importedElement="_UX_5MO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdA8F-80Eem0f4CX50V2Gg" importedElement="_UXyd0O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdA8Ge80Eem0f4CX50V2Gg" importedElement="_UdA8GO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdF0ke80Eem0f4CX50V2Gg" importedElement="_UdF0kO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdF0ku80Eem0f4CX50V2Gg" importedElement="_UbeD-u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdHCse80Eem0f4CX50V2Gg" importedElement="_UdHCsO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UdHCsu80Eem0f4CX50V2Gg" importedElement="_UbeD_O80Eem0f4CX50V2Gg" visibility="private"/>
+          <packageImport xmi:id="_UdA8Eu80Eem0f4CX50V2Gg" importedPackage="_UZgVE-80Eem0f4CX50V2Gg" visibility="private"/>
+          <packageImport xmi:id="_UdA8E-80Eem0f4CX50V2Gg" importedPackage="_UbXWRe80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedAttribute xmi:id="_UdZ9oO80Eem0f4CX50V2Gg" name="data" visibility="private" isStatic="true" type="_UX_5MO80Eem0f4CX50V2Gg" isOrdered="true" isUnique="false" association="_UlzrsO80Eem0f4CX50V2Gg">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UdZ9ou80Eem0f4CX50V2Gg" value="*"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_UdZ9oe80Eem0f4CX50V2Gg" name="" type="_UX_5MO80Eem0f4CX50V2Gg" value="new ArrayList&lt;Person>()"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_Ud9-UO80Eem0f4CX50V2Gg" name="addPerson" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Ud_McO80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ud_Mce80Eem0f4CX50V2Gg" key="documentation" value=" Metodo per aggiungere i dati di una nuova persona alla lista.&#xD;&#xA; @param p Dati della nuova persona da aggiungere alla lista.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ud_Mcu80Eem0f4CX50V2Gg" name="p" type="_UX_5MO80Eem0f4CX50V2Gg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UeFTEO80Eem0f4CX50V2Gg" name="getJSONDataset" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_UeFTEe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UeFTEu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo utilizzato per la restituzione dei dati delle persone&#xD;&#xA; in formato JSON.&#xD;&#xA; @return Dati delle persone in formato JSON.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UeFTE-80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UeQSMO80Eem0f4CX50V2Gg" name="loadAndParseDataset" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_UeQSMe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UeQSMu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che carica in memoria e parsa i dati dal file TSV appena scaricato.&#xD;&#xA; @param filename File di cui fare il parsing.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UeQSM-80Eem0f4CX50V2Gg" name="filename">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UeXm8O80Eem0f4CX50V2Gg" name="getDataset" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_UeXm8e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UeXm8u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che resituisce la lista di dati delle persone inserite.&#xD;&#xA; @return La Lista di persone nel dataset.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UeXm8-80Eem0f4CX50V2Gg" type="_UbeD_O80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UeXm9O80Eem0f4CX50V2Gg" name="getAnnoMinimo" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_UeXm9e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UeXm9u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce l'anno più piccolo dai metadati &#xD;&#xA; del dataset principale. &#xD;&#xA; @return Anno minimo dai metadati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UeXm9-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uej0MO80Eem0f4CX50V2Gg" name="getAnnoMinimo" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Uej0Me80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uej0Mu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce l'anno più piccolo dai metadati di un &#xD;&#xA; sottoinsieme del dataset.&#xD;&#xA; @param dataset Lista di persone.&#xD;&#xA; @return Anno minimo dai metadati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uej0M-80Eem0f4CX50V2Gg" name="dataset" type="_UbeD_O80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_Uej0NO80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uej0Ne80Eem0f4CX50V2Gg" name="getAnnoMassimo" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Uej0Nu80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uej0N-80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce l'anno più grande dai metadati &#xD;&#xA; del dataset principale. &#xD;&#xA; @return Anno massimo dai metadati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uej0OO80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ue9c0O80Eem0f4CX50V2Gg" name="getAnnoMassimo" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Ue9c0e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ue9c0u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce l'anno più grande dai metadati di un &#xD;&#xA; sottoinsieme del dataset.&#xD;&#xA; @param dataset Lista di persone.&#xD;&#xA; @return Anno massimo dai metadati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ue9c0-80Eem0f4CX50V2Gg" name="dataset" type="_UbeD_O80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_Ue9c1O80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UfclAO80Eem0f4CX50V2Gg" name="analyzeDataset" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_UfclAe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UfclAu80Eem0f4CX50V2Gg" key="documentation" value=" Analizza la lista di persone passatagli come parametro&#xD;&#xA; restituendone un'analisi statistica dei dati e degli &#xD;&#xA; attributi.&#xD;&#xA; @param dataset Lista di persone da analizzare.&#xD;&#xA; @return JSON contentente la statistica sui dati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UfclA-80Eem0f4CX50V2Gg" name="dataset" type="_UbeD_O80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UfclBO80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlzEoO80Eem0f4CX50V2Gg" name="dataset_util" client="_UXTVoe80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlzEoe80Eem0f4CX50V2Gg" name="dataset_simple" client="_UXTVoe80Eem0f4CX50V2Gg" supplier="_UbXWRe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlzEou80Eem0f4CX50V2Gg" name="dataset_io" client="_UXTVoe80Eem0f4CX50V2Gg" supplier="_UZaOce80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_UlzEo-80Eem0f4CX50V2Gg" name="dataset_datatypes" client="_UXTVoe80Eem0f4CX50V2Gg" supplier="_UXnesO80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_UlzrsO80Eem0f4CX50V2Gg" name="data_target" memberEnd="_UdZ9oO80Eem0f4CX50V2Gg _Ulzrse80Eem0f4CX50V2Gg">
+          <ownedEnd xmi:id="_Ulzrse80Eem0f4CX50V2Gg" name="target" type="_UXmQkO80Eem0f4CX50V2Gg" association="_UlzrsO80Eem0f4CX50V2Gg"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UXnesO80Eem0f4CX50V2Gg" name="datatypes">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UXyd0O80Eem0f4CX50V2Gg" name="TupleData" visibility="public">
+          <eAnnotations xmi:id="_UXyd0e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UXyd0u80Eem0f4CX50V2Gg" key="documentation" value=" Classe che contiene una coppia anno-valore.&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <ownedAttribute xmi:id="_UfhdgO80Eem0f4CX50V2Gg" name="year" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Ufhdge80Eem0f4CX50V2Gg" name="value" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_UfiroO80Eem0f4CX50V2Gg" name="TupleData" visibility="public">
+            <eAnnotations xmi:id="_Ufiroe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ufirou80Eem0f4CX50V2Gg" key="documentation" value=" Costruttore di TupleData, assegna direttamente la coppia anno-valore.&#xD;&#xA; @param year Anno di riferimento.&#xD;&#xA; @param value Valore relativo all'anno.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ufiro-80Eem0f4CX50V2Gg" name="year">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UfirpO80Eem0f4CX50V2Gg" name="value">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ufirpe80Eem0f4CX50V2Gg" name="getYear" visibility="public">
+            <eAnnotations xmi:id="_Ufirpu80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ufirp-80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce l'anno di riferimento.&#xD;&#xA; @return Anno di riferimento.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UfirqO80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UfpZUO80Eem0f4CX50V2Gg" name="setYear" visibility="public">
+            <eAnnotations xmi:id="_UfpZUe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UfpZUu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta l'anno di riferimento.&#xD;&#xA; @param year Anno da settare.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UfpZU-80Eem0f4CX50V2Gg" name="year">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UfpZVO80Eem0f4CX50V2Gg" name="getValue" visibility="public">
+            <eAnnotations xmi:id="_UfpZVe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UfpZVu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta il valore relativo all'anno di riferimento.&#xD;&#xA; @return Valore relativo all'anno di riferimento.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UfpZV-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UfpZWO80Eem0f4CX50V2Gg" name="setValue" visibility="public">
+            <eAnnotations xmi:id="_UfpZWe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UfpZWu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta il valore relativo all'anno di riferimento.&#xD;&#xA; @param value Valore da impostare.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UfpZW-80Eem0f4CX50V2Gg" name="value">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_UX_5MO80Eem0f4CX50V2Gg" name="Person" visibility="public">
+          <eAnnotations xmi:id="_UX_5Me80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UX_5Mu80Eem0f4CX50V2Gg" key="documentation" value=" Classe che contiene i dati di ogni persona.&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <elementImport xmi:id="_Ufvf8O80Eem0f4CX50V2Gg" importedElement="_UbeD-u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ufvf8e80Eem0f4CX50V2Gg" importedElement="_UZgVFO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ufvf8-80Eem0f4CX50V2Gg" importedElement="_Ufvf8u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf0YcO80Eem0f4CX50V2Gg" importedElement="_UbeD_O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf0Yce80Eem0f4CX50V2Gg" importedElement="_UbeD_u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf1mkO80Eem0f4CX50V2Gg" importedElement="_UbXWRu80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf1mke80Eem0f4CX50V2Gg" importedElement="_UbXWSO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf1mku80Eem0f4CX50V2Gg" importedElement="_UXmQkO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Uf1mk-80Eem0f4CX50V2Gg" importedElement="_UYlIAO80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedAttribute xmi:id="_Uf1mlO80Eem0f4CX50V2Gg" name="wstatus" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf1mle80Eem0f4CX50V2Gg" name="indic_il" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf1mlu80Eem0f4CX50V2Gg" name="sex" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf1ml-80Eem0f4CX50V2Gg" name="etaMax" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf6fEO80Eem0f4CX50V2Gg" name="etaMin" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf6fEe80Eem0f4CX50V2Gg" name="etaRange" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Uf7tMO80Eem0f4CX50V2Gg" name="country" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UgDB8O80Eem0f4CX50V2Gg" name="indexes" visibility="public" type="_UXyd0O80Eem0f4CX50V2Gg" isOrdered="true" isUnique="false" association="_Ul050O80Eem0f4CX50V2Gg">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UgDB8e80Eem0f4CX50V2Gg" value="*"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_UgDB8u80Eem0f4CX50V2Gg" name="Person" visibility="public">
+            <eAnnotations xmi:id="_UgDB8-80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UgDB9O80Eem0f4CX50V2Gg" key="documentation" value=" Costruttore della classe persona.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UgjYQO80Eem0f4CX50V2Gg" name="addIndexes" visibility="public">
+            <eAnnotations xmi:id="_UgjYQe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UgjYQu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che aggiunge la coppia anno-valore &#xD;&#xA; all'interno della classe &quot;Persona&quot;.&#xD;&#xA; @param t Coppia anno-valore.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UgjYQ-80Eem0f4CX50V2Gg" name="t" type="_UXyd0O80Eem0f4CX50V2Gg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UgjYRO80Eem0f4CX50V2Gg" name="getWstatus" visibility="public">
+            <eAnnotations xmi:id="_UgjYRe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UgjYRu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna wstatus.&#xD;&#xA; @return wstatus&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UgjYR-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ugpe4O80Eem0f4CX50V2Gg" name="setWstatus" visibility="public">
+            <eAnnotations xmi:id="_Ugpe4e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ugpe4u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta wstatus.&#xD;&#xA; @param wstatus Working status.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ugpe4-80Eem0f4CX50V2Gg" name="wstatus">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ugpe5O80Eem0f4CX50V2Gg" name="getIndic_il" visibility="public">
+            <eAnnotations xmi:id="_Ugpe5e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ugpe5u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna indic_il.&#xD;&#xA; @return inidic_il&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ugpe5-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UgvlgO80Eem0f4CX50V2Gg" name="setIndic_il" visibility="public">
+            <eAnnotations xmi:id="_Ugvlge80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ugvlgu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta indic_il.&#xD;&#xA; @param indic_il IndicIl.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ugvlg-80Eem0f4CX50V2Gg" name="indic_il">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UgvlhO80Eem0f4CX50V2Gg" name="getSex" visibility="public">
+            <eAnnotations xmi:id="_Ugvlhe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ugvlhu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna sex.&#xD;&#xA; @return sex&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ugvlh-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ug26QO80Eem0f4CX50V2Gg" name="setSex" visibility="public">
+            <eAnnotations xmi:id="_Ug26Qe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ug26Qu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta sex.&#xD;&#xA; @param sex Sex.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ug26Q-80Eem0f4CX50V2Gg" name="sex">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Ug9A4O80Eem0f4CX50V2Gg" name="getEtaMax" visibility="public">
+            <eAnnotations xmi:id="_Ug9A4e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Ug9A4u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna etamax.&#xD;&#xA; @return etaMax&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Ug9A4-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhEVoO80Eem0f4CX50V2Gg" name="setEtaMax" visibility="public">
+            <eAnnotations xmi:id="_UhEVoe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhEVou80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta etamax.&#xD;&#xA; @param etaMax Età massima.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhEVo-80Eem0f4CX50V2Gg" name="etaMax">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhEVpO80Eem0f4CX50V2Gg" name="getEtaMin" visibility="public">
+            <eAnnotations xmi:id="_UhEVpe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhEVpu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce etamin.&#xD;&#xA; @return etaMin&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhEVp-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhWpgO80Eem0f4CX50V2Gg" name="setEtaMin" visibility="public">
+            <eAnnotations xmi:id="_UhWpge80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhWpgu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta etamin.&#xD;&#xA; @param etaMin Età minima.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhWpg-80Eem0f4CX50V2Gg" name="etaMin">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhWphO80Eem0f4CX50V2Gg" name="getCountry" visibility="public">
+            <eAnnotations xmi:id="_UhWphe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhWphu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce country.&#xD;&#xA; @return country&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhWph-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhrZoO80Eem0f4CX50V2Gg" name="setCountry" visibility="public">
+            <eAnnotations xmi:id="_UhrZoe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhrZou80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta country.&#xD;&#xA; @param country Country.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhrZo-80Eem0f4CX50V2Gg" name="country">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UhwSIO80Eem0f4CX50V2Gg" name="getIndexes" visibility="public">
+            <eAnnotations xmi:id="_UhwSIe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UhwSIu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce la lista di coppie anno-valore.&#xD;&#xA; @return Lista di coppie anno-valore&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UhwSI-80Eem0f4CX50V2Gg" type="_UbeD_O80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uh-UkO80Eem0f4CX50V2Gg" name="setIndexes" visibility="public">
+            <eAnnotations xmi:id="_Uh-Uke80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uh-Uku80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che imposta la lista di coppie anno-valore.&#xD;&#xA; @param indexes Lista coppie anno-valore.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uh-Uk-80Eem0f4CX50V2Gg" name="indexes" type="_UbeD_O80Eem0f4CX50V2Gg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UiDNEO80Eem0f4CX50V2Gg" name="setEtaRange" visibility="private">
+            <eAnnotations xmi:id="_UiDNEe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UiDNEu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che permette di impostare un range di età. &#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UiEbMO80Eem0f4CX50V2Gg" name="getEtaRange" visibility="public">
+            <eAnnotations xmi:id="_UiEbMe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UiEbMu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restituisce il range di età.&#xD;&#xA; @return EtàRange&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UiEbM-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UiPaUO80Eem0f4CX50V2Gg" name="applyFilter" visibility="public">
+            <eAnnotations xmi:id="_UiPaUe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UiPaUu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che permette di applicare&#xD;&#xA; dei filtri all'oggetto &quot;Persona&quot; corrente.&#xD;&#xA; @param filtersJSON filtri in formato JSON.&#xD;&#xA; @return true se l'oggetto rispetta i filtri applicati.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UiPaU-80Eem0f4CX50V2Gg" name="filtersJSON" type="_UbXWSO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UiPaVO80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uic1sO80Eem0f4CX50V2Gg" name="checkGreaterValueByVariableName" visibility="private">
+            <eAnnotations xmi:id="_Uic1se80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uic1su80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla se una determina variabile&#xD;&#xA; ha un valore maggiore del valore passato come parametro.&#xD;&#xA; @param variableName nome della variabile con la quale effettuare il confronto.&#xD;&#xA; @param value valore con il quale fare il confronto.&#xD;&#xA; @return true se la condizione è soddifatta.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uic1s-80Eem0f4CX50V2Gg" name="variableName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_Uic1tO80Eem0f4CX50V2Gg" name="value" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_Uic1te80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UipqAO80Eem0f4CX50V2Gg" name="checkLowerValueByVariableName" visibility="private">
+            <eAnnotations xmi:id="_UipqAe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UipqAu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla se una determina variabile&#xD;&#xA;  ha un valore minore del valore passato come parametro.&#xD;&#xA; @param variableName nome della variabile con la quale effettuare il confronto.&#xD;&#xA; @param value valore con il quale fare il confronto.&#xD;&#xA; @return true se la condizione è soddifatta.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UipqA-80Eem0f4CX50V2Gg" name="variableName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UipqBO80Eem0f4CX50V2Gg" name="value" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UipqBe80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UjILIO80Eem0f4CX50V2Gg" name="checkValueBetweenByVariableName" visibility="private">
+            <eAnnotations xmi:id="_UjILIe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjILIu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla se una determina variabile&#xD;&#xA; ha un valore compreso tra i valori passati come parametri.&#xD;&#xA; @param variableName nome della variabile con la quale effettuare il confronto.&#xD;&#xA; @param min valore minore con la quale fare il confronto.&#xD;&#xA; @param max valore maggiore con la quale fare il confronto.&#xD;&#xA; @return true se la condizione è soddifatta.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UjILI-80Eem0f4CX50V2Gg" name="variableName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UjILJO80Eem0f4CX50V2Gg" name="min" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UjILJe80Eem0f4CX50V2Gg" name="max" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UjILJu80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UjO40O80Eem0f4CX50V2Gg" name="checkContainsValueByVariableName" visibility="private">
+            <eAnnotations xmi:id="_UjTxUO80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjTxUe80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla se la determinata varibile che passo come argomento&#xD;&#xA; si trov all'interno dell'array che gli passo come argomento.&#xD;&#xA; @param variableName nome della variabile con la quale effettuare il controllo.&#xD;&#xA; @param values valore con il quale devo effettuare il controllo.&#xD;&#xA; @return true se la condizione è soddifatta.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UjTxUu80Eem0f4CX50V2Gg" name="variableName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UjTxU-80Eem0f4CX50V2Gg" name="values" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UjTxVO80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UjbGEO80Eem0f4CX50V2Gg" name="checkEqualValueByVariableName" visibility="private">
+            <eAnnotations xmi:id="_UjbGEe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjbGEu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla se la variabile ha valore &#xD;&#xA; uguale all'attributo passatogli come argomento.&#xD;&#xA; @param variableName nome della variabile con la quale effettuare il controllo.&#xD;&#xA; @param value valore dell'attibuto.&#xD;&#xA; @return true se la condizione è soddisfatta.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UjbGE-80Eem0f4CX50V2Gg" name="variableName">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedParameter>
+            <ownedParameter xmi:id="_UjbGFO80Eem0f4CX50V2Gg" name="value" type="_UiWvEO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UjbGFe80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_UYF_0O80Eem0f4CX50V2Gg" name="NumericAnalyticsData" visibility="public">
+          <eAnnotations xmi:id="_UYF_0e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UYF_0u80Eem0f4CX50V2Gg" key="documentation" value=" Classe utilizzata per la gestione dei dati analitici.&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <elementImport xmi:id="_Ujf-kO80Eem0f4CX50V2Gg" importedElement="_UbeD-u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ujf-ke80Eem0f4CX50V2Gg" importedElement="_UbeD_O80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedAttribute xmi:id="_UjhMsO80Eem0f4CX50V2Gg" name="sum" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_UjhMse80Eem0f4CX50V2Gg" name="" value="0">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjhMsu80Eem0f4CX50V2Gg" name="count" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_UjhMs-80Eem0f4CX50V2Gg" name="" value="0">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjhMtO80Eem0f4CX50V2Gg" name="avg" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjhMte80Eem0f4CX50V2Gg" name="devstd" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_UjhMtu80Eem0f4CX50V2Gg" name="" value="0">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjhMt-80Eem0f4CX50V2Gg" name="min" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjhMuO80Eem0f4CX50V2Gg" name="max" visibility="private">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_UjnTUe80Eem0f4CX50V2Gg" name="data" visibility="private" type="_UjnTUO80Eem0f4CX50V2Gg" isOrdered="true" isUnique="false">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UjnTUu80Eem0f4CX50V2Gg" value="*"/>
+          </ownedAttribute>
+          <ownedOperation xmi:id="_UjnTU-80Eem0f4CX50V2Gg" name="NumericAnalyticsData" visibility="public">
+            <eAnnotations xmi:id="_UjnTVO80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjnTVe80Eem0f4CX50V2Gg" key="documentation" value=" Costruttore della Classe NumericAnalyticsData.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UjtZ8O80Eem0f4CX50V2Gg" name="addValue" visibility="public">
+            <eAnnotations xmi:id="_UjtZ8e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjtZ8u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che inserisce un nuovo valore in lista&#xD;&#xA; aggiornandone la somma, il conteggio,&#xD;&#xA; minimo e massimo dei valori iseriti. &#xD;&#xA; @param value Valore che vogliamo inserire&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UjtZ8-80Eem0f4CX50V2Gg" name="value">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UjtZ9O80Eem0f4CX50V2Gg" name="calculateAvg" visibility="public">
+            <eAnnotations xmi:id="_UjtZ9e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UjtZ9u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che calcola la media dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uj_GwO80Eem0f4CX50V2Gg" name="calculateDevstd" visibility="public">
+            <eAnnotations xmi:id="_Uj_Gwe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uj_Gwu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che calcola la deviazione standard dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkAU4O80Eem0f4CX50V2Gg" name="getSum" visibility="public">
+            <eAnnotations xmi:id="_UkAU4e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkAU4u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna la somma dei valori inseriti.&#xD;&#xA; @return Somma dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkAU4-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkAU5O80Eem0f4CX50V2Gg" name="getCount" visibility="public">
+            <eAnnotations xmi:id="_UkAU5e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkAU5u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna il conteggio dei valori inseriti.&#xD;&#xA; @return Conteggio dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkAU5-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkAU6O80Eem0f4CX50V2Gg" name="getAvg" visibility="public">
+            <eAnnotations xmi:id="_UkAU6e80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkAU6u80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna la media dei valori inseriti.&#xD;&#xA; @return Media dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkAU6-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkFNYO80Eem0f4CX50V2Gg" name="getDevstd" visibility="public">
+            <eAnnotations xmi:id="_UkFNYe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkFNYu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna la deviazione standard dei valori inseriti.&#xD;&#xA; @return Deviazione standard dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkFNY-80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkFNZO80Eem0f4CX50V2Gg" name="getMin" visibility="public">
+            <eAnnotations xmi:id="_UkFNZe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkGbgO80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna il minimo dei valori inseriti.&#xD;&#xA; @return Minimo dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkGbge80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkGbgu80Eem0f4CX50V2Gg" name="getMax" visibility="public">
+            <eAnnotations xmi:id="_UkGbg-80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkGbhO80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che ritorna il massimo dei valori inseriti.&#xD;&#xA; @return Massimo dei valori inseriti.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkGbhe80Eem0f4CX50V2Gg" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+            </ownedParameter>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_UYfBYO80Eem0f4CX50V2Gg" name="HashTableCustom" visibility="public">
+          <eAnnotations xmi:id="_UYfBYe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UYfBYu80Eem0f4CX50V2Gg" key="documentation" value=" Classe personalizzata per una gestione ottimizzata della HashTable. &#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA; @param &lt;K> Chiave&#xD;&#xA; @param &lt;V> Valore&#xD;&#xA;"/>
+          </eAnnotations>
+          <elementImport xmi:id="_UkMiIu80Eem0f4CX50V2Gg" importedElement="_UkMiIO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkMiI-80Eem0f4CX50V2Gg" importedElement="_UbeD_u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkMiJO80Eem0f4CX50V2Gg" importedElement="_UbXWRu80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkMiJe80Eem0f4CX50V2Gg" importedElement="_UbXWSO80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedTemplateSignature xmi:type="uml:RedefinableTemplateSignature" xmi:id="_UYfBY-80Eem0f4CX50V2Gg" parameter="_UYfBZO80Eem0f4CX50V2Gg _UYfBZu80Eem0f4CX50V2Gg">
+            <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UYfBZO80Eem0f4CX50V2Gg" parameteredElement="_UYfBZe80Eem0f4CX50V2Gg">
+              <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UYfBZe80Eem0f4CX50V2Gg" name="K" templateParameter="_UYfBZO80Eem0f4CX50V2Gg"/>
+            </ownedParameter>
+            <ownedParameter xmi:type="uml:ClassifierTemplateParameter" xmi:id="_UYfBZu80Eem0f4CX50V2Gg" parameteredElement="_UYfBZ-80Eem0f4CX50V2Gg">
+              <ownedParameteredElement xmi:type="uml:Class" xmi:id="_UYfBZ-80Eem0f4CX50V2Gg" name="V" templateParameter="_UYfBZu80Eem0f4CX50V2Gg"/>
+            </ownedParameter>
+          </ownedTemplateSignature>
+          <generalization xmi:id="_UkMiIe80Eem0f4CX50V2Gg" general="_UkMiIO80Eem0f4CX50V2Gg"/>
+          <ownedOperation xmi:id="_UkZWcO80Eem0f4CX50V2Gg" name="set" visibility="public">
+            <eAnnotations xmi:id="_UkZWce80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkZWcu80Eem0f4CX50V2Gg" key="documentation" value=" Aggiorna il valore associato ad una chiave&#xD;&#xA; @param key Chiave nella quale si vuole modificare il valore&#xD;&#xA; @param newValue Il valore che assumerà la nuova chiave.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkZWc-80Eem0f4CX50V2Gg" name="key" type="_UYfBZe80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_UkZWdO80Eem0f4CX50V2Gg" name="newValue" type="_UYfBZ-80Eem0f4CX50V2Gg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkfdEO80Eem0f4CX50V2Gg" name="setOrInc" visibility="public">
+            <eAnnotations xmi:id="_UkfdEe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkfdEu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che crea la chiave nel caso in cui &#xD;&#xA; questa non esista, altrimenti la incrementa&#xD;&#xA; nel caso in cui ne esista già una.&#xD;&#xA; @param key Chiave&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkfdE-80Eem0f4CX50V2Gg" name="key" type="_UYfBZe80Eem0f4CX50V2Gg"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_UkfdFO80Eem0f4CX50V2Gg" name="getJSONValues" visibility="public">
+            <eAnnotations xmi:id="_UkfdFe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_UkfdFu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che crea un array di oggetti di tipo JSON &#xD;&#xA; in cui inserisce la coppia Valore-Conteggio della &#xD;&#xA; chiave.&#xD;&#xA; @return L'array creato&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_UkfdF-80Eem0f4CX50V2Gg" type="_UbXWRu80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul0SwO80Eem0f4CX50V2Gg" name="datatypes_util" client="_UXnesO80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul0Swe80Eem0f4CX50V2Gg" name="datatypes_simple" client="_UXnesO80Eem0f4CX50V2Gg" supplier="_UbXWRe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul0Swu80Eem0f4CX50V2Gg" name="datatypes_dataset" client="_UXnesO80Eem0f4CX50V2Gg" supplier="_UXTVoe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul0Sw-80Eem0f4CX50V2Gg" name="datatypes_utils" client="_UXnesO80Eem0f4CX50V2Gg" supplier="_UYfBaO80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_Ul050O80Eem0f4CX50V2Gg" name="indexes_target" memberEnd="_UgDB8O80Eem0f4CX50V2Gg _Ul050e80Eem0f4CX50V2Gg">
+          <ownedEnd xmi:id="_Ul050e80Eem0f4CX50V2Gg" name="target" type="_UX_5MO80Eem0f4CX50V2Gg" association="_Ul050O80Eem0f4CX50V2Gg"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UYfBaO80Eem0f4CX50V2Gg" name="utils">
+        <packagedElement xmi:type="uml:Class" xmi:id="_UYlIAO80Eem0f4CX50V2Gg" name="Utils" visibility="public" isAbstract="true">
+          <eAnnotations xmi:id="_UYqAgO80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UYqAge80Eem0f4CX50V2Gg" key="documentation" value=" Classe astratta (non istanziabile) per le funzioni di utilizzo generale&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <elementImport xmi:id="_Ukmx0e80Eem0f4CX50V2Gg" importedElement="_Ukmx0O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ukmx0-80Eem0f4CX50V2Gg" importedElement="_Ukmx0u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ukmx1O80Eem0f4CX50V2Gg" importedElement="_UdF0kO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ukmx1u80Eem0f4CX50V2Gg" importedElement="_Ukmx1e80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_Ukmx1-80Eem0f4CX50V2Gg" importedElement="_UZgVEe80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkrqUO80Eem0f4CX50V2Gg" importedElement="_UbeD-u80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkrqUe80Eem0f4CX50V2Gg" importedElement="_UbeD_O80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkrqUu80Eem0f4CX50V2Gg" importedElement="_UbXWRu80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkrqU-80Eem0f4CX50V2Gg" importedElement="_UbXWSO80Eem0f4CX50V2Gg" visibility="private"/>
+          <elementImport xmi:id="_UkrqVO80Eem0f4CX50V2Gg" importedElement="_UXmQkO80Eem0f4CX50V2Gg" visibility="private"/>
+          <ownedOperation xmi:id="_Uky_EO80Eem0f4CX50V2Gg" name="isFilterValid" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Uky_Ee80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uky_Eu80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che controlla la validità di un filtro in JSON.&#xD;&#xA; @param filtroJSON Filtro in formato JSON.&#xD;&#xA; @return Restituisce true se il filtro è valido, altrimenti false.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uky_E-80Eem0f4CX50V2Gg" name="filtroJSON" type="_UbXWSO80Eem0f4CX50V2Gg"/>
+            <ownedParameter xmi:id="_Uky_FO80Eem0f4CX50V2Gg" type="_UbXWSO80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uk33kO80Eem0f4CX50V2Gg" name="getValidFields" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Uk33ke80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uk33ku80Eem0f4CX50V2Gg" key="documentation" value=" Metodo che restuisce una lista di campi validi per il filtraggio.&#xD;&#xA; @return La lista dei campi validi.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_Uk33k-80Eem0f4CX50V2Gg" type="_UbeD_O80Eem0f4CX50V2Gg" direction="return"/>
+          </ownedOperation>
+          <ownedOperation xmi:id="_Uk5FsO80Eem0f4CX50V2Gg" name="downloadDataset" visibility="public" isStatic="true">
+            <eAnnotations xmi:id="_Uk5Fse80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uk5Fsu80Eem0f4CX50V2Gg" key="documentation" value=" Scarica il dataset dall'URL presente nel file Configurations (FILE_URL) &#xD;&#xA; e salva il dataset in un file (FILE_NAME).&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+          </ownedOperation>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Enumeration" xmi:id="_UYxVQO80Eem0f4CX50V2Gg" name="Configurations" visibility="public" isAbstract="true">
+          <eAnnotations xmi:id="_UYxVQe80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+            <details xmi:id="_UYxVQu80Eem0f4CX50V2Gg" key="documentation" value=" Classe astratta che contiene le stringhe di configurazione.&#xD;&#xA; @author Samuele Perticarari e Martina Rossi&#xD;&#xA;"/>
+          </eAnnotations>
+          <ownedLiteral xmi:id="_Uk5Fs-80Eem0f4CX50V2Gg" name="FILE_URL">
+            <eAnnotations xmi:id="_Uk5Fte80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uk5Ftu80Eem0f4CX50V2Gg" key="documentation" value=" URL del dataset da scaricare e parsare.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_Uk5FtO80Eem0f4CX50V2Gg"/>
+          </ownedLiteral>
+          <ownedLiteral xmi:id="_Uk9-MO80Eem0f4CX50V2Gg" name="FILE_NAME">
+            <eAnnotations xmi:id="_Uk9-Mu80Eem0f4CX50V2Gg" source="http://www.eclipse.org/umlgen/reverse/java/doc">
+              <details xmi:id="_Uk9-M-80Eem0f4CX50V2Gg" key="documentation" value=" Nome del file di destinazione del dataset.&#xD;&#xA;&#x9;"/>
+            </eAnnotations>
+            <specification xmi:type="uml:LiteralInteger" xmi:id="_Uk9-Me80Eem0f4CX50V2Gg"/>
+          </ownedLiteral>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul050u80Eem0f4CX50V2Gg" name="utils_io" client="_UYfBaO80Eem0f4CX50V2Gg" supplier="_UZaOce80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul1g4O80Eem0f4CX50V2Gg" name="utils_net" client="_UYfBaO80Eem0f4CX50V2Gg" supplier="_UZgVEO80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul1g4e80Eem0f4CX50V2Gg" name="utils_util" client="_UYfBaO80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul1g4u80Eem0f4CX50V2Gg" name="utils_simple" client="_UYfBaO80Eem0f4CX50V2Gg" supplier="_UbXWRe80Eem0f4CX50V2Gg"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_Ul1g4-80Eem0f4CX50V2Gg" name="utils_dataset" client="_UYfBaO80Eem0f4CX50V2Gg" supplier="_UXTVoe80Eem0f4CX50V2Gg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UYxVQ-80Eem0f4CX50V2Gg" name="OopProject2ApplicationTests" visibility="public">
+        <elementImport xmi:id="_UlWYsO80Eem0f4CX50V2Gg" importedElement="_UlRgMe80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UlW_wu80Eem0f4CX50V2Gg" importedElement="_UlW_we80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UlW_xu80Eem0f4CX50V2Gg" importedElement="_UlW_xe80Eem0f4CX50V2Gg" visibility="private"/>
+        <elementImport xmi:id="_UlYN5O80Eem0f4CX50V2Gg" importedElement="_UlYN4-80Eem0f4CX50V2Gg" visibility="private"/>
+        <ownedOperation xmi:id="_Ulm3YO80Eem0f4CX50V2Gg" name="contextLoads" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlvaQO80Eem0f4CX50V2Gg" name="oopproject_io" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZaOce80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwBUO80Eem0f4CX50V2Gg" name="oopproject_net" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZgVEO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwBUe80Eem0f4CX50V2Gg" name="oopproject_util" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwBUu80Eem0f4CX50V2Gg" name="oopproject_boot" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZlNku80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoYO80Eem0f4CX50V2Gg" name="oopproject_autoconfigure" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbsu80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoYe80Eem0f4CX50V2Gg" name="oopproject_context" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbte80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoYu80Eem0f4CX50V2Gg" name="oopproject_annotation" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbuO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoY-80Eem0f4CX50V2Gg" name="oopproject_annotation" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZsiUu80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoZO80Eem0f4CX50V2Gg" name="oopproject_dataset" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UXTVoe80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlwoZe80Eem0f4CX50V2Gg" name="oopproject_utils" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UYfBaO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlxPcO80Eem0f4CX50V2Gg" name="oopproject_junit" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlRgMO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlxPce80Eem0f4CX50V2Gg" name="oopproject_runner" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlW_wO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlxPcu80Eem0f4CX50V2Gg" name="oopproject_context" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlW_xO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_UlxPc-80Eem0f4CX50V2Gg" name="oopproject_junit4" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlYN4u80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul3WEO80Eem0f4CX50V2Gg" name="oopproject_io" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZaOce80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul5LQO80Eem0f4CX50V2Gg" name="oopproject_net" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZgVEO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul5yUO80Eem0f4CX50V2Gg" name="oopproject_util" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZgVE-80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul5yUe80Eem0f4CX50V2Gg" name="oopproject_boot" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZlNku80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul5yUu80Eem0f4CX50V2Gg" name="oopproject_autoconfigure" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbsu80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul5yU-80Eem0f4CX50V2Gg" name="oopproject_context" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbte80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul6ZYO80Eem0f4CX50V2Gg" name="oopproject_annotation" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZmbuO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul6ZYe80Eem0f4CX50V2Gg" name="oopproject_annotation" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UZsiUu80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul7AcO80Eem0f4CX50V2Gg" name="oopproject_dataset" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UXTVoe80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul8OkO80Eem0f4CX50V2Gg" name="oopproject_utils" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UYfBaO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul8Oke80Eem0f4CX50V2Gg" name="oopproject_junit" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlRgMO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul8Oku80Eem0f4CX50V2Gg" name="oopproject_runner" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlW_wO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul81oO80Eem0f4CX50V2Gg" name="oopproject_context" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlW_xO80Eem0f4CX50V2Gg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_Ul81oe80Eem0f4CX50V2Gg" name="oopproject_junit4" client="_UWZ9we80Eem0f4CX50V2Gg" supplier="_UlYN4u80Eem0f4CX50V2Gg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UZaOcO80Eem0f4CX50V2Gg" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_UZaOce80Eem0f4CX50V2Gg" name="io">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UdA8EO80Eem0f4CX50V2Gg" name="BufferedReader"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UdA8GO80Eem0f4CX50V2Gg" name="FileReader"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UdF0kO80Eem0f4CX50V2Gg" name="IOException"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Ukmx0O80Eem0f4CX50V2Gg" name="BufferedInputStream"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Ukmx0u80Eem0f4CX50V2Gg" name="FileOutputStream"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Ukmx1e80Eem0f4CX50V2Gg" name="InputStream"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UZgVEO80Eem0f4CX50V2Gg" name="net">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UZgVEe80Eem0f4CX50V2Gg" name="URL"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UZgVE-80Eem0f4CX50V2Gg" name="util">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UZgVFO80Eem0f4CX50V2Gg" name="Arrays"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD-u80Eem0f4CX50V2Gg" name="ArrayList"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD_O80Eem0f4CX50V2Gg" name="List"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD_u80Eem0f4CX50V2Gg" name="Set"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UdHCsO80Eem0f4CX50V2Gg" name="HashMap"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Ufvf8u80Eem0f4CX50V2Gg" name="Collections"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UkMiIO80Eem0f4CX50V2Gg" name="Hashtable"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UbeD9-80Eem0f4CX50V2Gg" name="lang">
+      <packagedElement xmi:type="uml:Package" xmi:id="_UbeD-O80Eem0f4CX50V2Gg" name="reflect"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UiWvEO80Eem0f4CX50V2Gg" name="Object"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UjnTUO80Eem0f4CX50V2Gg" name="Double"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_UZlNkO80Eem0f4CX50V2Gg" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_UZlNke80Eem0f4CX50V2Gg" name="springframework">
+      <packagedElement xmi:type="uml:Package" xmi:id="_UZlNku80Eem0f4CX50V2Gg" name="boot">
+        <packagedElement xmi:type="uml:Package" xmi:id="_UZmbsu80Eem0f4CX50V2Gg" name="autoconfigure">
+          <packagedElement xmi:type="uml:DataType" xmi:id="_UZmbs-80Eem0f4CX50V2Gg" name="SpringBootApplication"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UZlNk-80Eem0f4CX50V2Gg" name="CommandLineRunner"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UZmbsO80Eem0f4CX50V2Gg" name="SpringApplication"/>
+        <packagedElement xmi:type="uml:Package" xmi:id="_UlW_w-80Eem0f4CX50V2Gg" name="test">
+          <packagedElement xmi:type="uml:Package" xmi:id="_UlW_xO80Eem0f4CX50V2Gg" name="context">
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UlW_xe80Eem0f4CX50V2Gg" name="SpringBootTest"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UZmbte80Eem0f4CX50V2Gg" name="context">
+        <packagedElement xmi:type="uml:Package" xmi:id="_UZmbuO80Eem0f4CX50V2Gg" name="annotation">
+          <packagedElement xmi:type="uml:DataType" xmi:id="_UZmbue80Eem0f4CX50V2Gg" name="Bean"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UZmbtu80Eem0f4CX50V2Gg" name="ApplicationContext"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UZsiUO80Eem0f4CX50V2Gg" name="web">
+        <packagedElement xmi:type="uml:Package" xmi:id="_UZsiUe80Eem0f4CX50V2Gg" name="bind">
+          <packagedElement xmi:type="uml:Package" xmi:id="_UZsiUu80Eem0f4CX50V2Gg" name="annotation">
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UZsiU-80Eem0f4CX50V2Gg" name="RestController"/>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UZxa0O80Eem0f4CX50V2Gg" name="RequestMapping"/>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UbcOwO80Eem0f4CX50V2Gg" name="PathVariable"/>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD8O80Eem0f4CX50V2Gg" name="RequestBody"/>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD8-80Eem0f4CX50V2Gg" name="RequestMethod"/>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UbeD9e80Eem0f4CX50V2Gg" name="RequestParam"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UlYN4O80Eem0f4CX50V2Gg" name="test">
+        <packagedElement xmi:type="uml:Package" xmi:id="_UlYN4e80Eem0f4CX50V2Gg" name="context">
+          <packagedElement xmi:type="uml:Package" xmi:id="_UlYN4u80Eem0f4CX50V2Gg" name="junit4">
+            <packagedElement xmi:type="uml:DataType" xmi:id="_UlYN4-80Eem0f4CX50V2Gg" name="SpringRunner"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UbXWRO80Eem0f4CX50V2Gg" name="json">
+      <packagedElement xmi:type="uml:Package" xmi:id="_UbXWRe80Eem0f4CX50V2Gg" name="simple">
+        <packagedElement xmi:type="uml:Package" xmi:id="_UbXWSu80Eem0f4CX50V2Gg" name="parser">
+          <packagedElement xmi:type="uml:DataType" xmi:id="_UbXWS-80Eem0f4CX50V2Gg" name="JSONParser"/>
+          <packagedElement xmi:type="uml:DataType" xmi:id="_UbXWTe80Eem0f4CX50V2Gg" name="ParseException"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UbXWRu80Eem0f4CX50V2Gg" name="JSONArray"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UbXWSO80Eem0f4CX50V2Gg" name="JSONObject"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UlRgMO80Eem0f4CX50V2Gg" name="junit">
+      <packagedElement xmi:type="uml:Package" xmi:id="_UlW_wO80Eem0f4CX50V2Gg" name="runner">
+        <packagedElement xmi:type="uml:DataType" xmi:id="_UlW_we80Eem0f4CX50V2Gg" name="RunWith"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_UlRgMe80Eem0f4CX50V2Gg" name="Test"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_UkSowO80Eem0f4CX50V2Gg" name="K"/>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_UkSowe80Eem0f4CX50V2Gg" name="V"/>
+</uml:Model>

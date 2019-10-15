@@ -2,6 +2,12 @@ package univpm.oopproject.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
+import com.fasterxml.jackson.module.jsonSchema.JsonSchemaGenerator;
+
 import univpm.oopproject.dataset.Dataset;
 import univpm.oopproject.datatypes.Person;
 import univpm.oopproject.utils.Utils;
@@ -38,58 +44,24 @@ public class MainController {
 	 * Metodo che restituisce i metadati in formato JSON.
 	 * @return Metadati in formato JSON.
 	 */
-	@RequestMapping("/get/metadata")
-    public JSONObject getMetadata()
+	@RequestMapping(value = "/get/metadata", method = RequestMethod.GET, produces="application/json")
+    public String getMetadata( )
     {
-		JSONObject obj = new JSONObject();
-		JSONArray arrayOfAttributes = new JSONArray();
-		JSONArray arrayOfMethods = new JSONArray();
-		
-		Class c;
+		ObjectMapper mapper = new ObjectMapper();
+		JsonSchemaGenerator jsonSchemaGenerator = new JsonSchemaGenerator(mapper);
+		JsonSchema jsonSchema;
 		try {
-			
-			c = Person.class;
-			Field[] fields = c.getDeclaredFields();
-			for(int i=0;i< fields.length;i++)
-			{
-				JSONObject classAttributesMetadata = new JSONObject();
-				Field f = fields[i];
-				classAttributesMetadata.put("ModificatoreAccesso", Modifier.toString( f.getModifiers() ) );
-				classAttributesMetadata.put("Tipo", f.getType().getName());
-				classAttributesMetadata.put("Nome", f.getName());
-				arrayOfAttributes.add(classAttributesMetadata);
-			}
-			
-			Method[] methods = c.getDeclaredMethods();
-            for (int i = 0; i < methods.length; i++)
-            {
-            	JSONObject classMethodsMetadata = new JSONObject();
-            	JSONArray classMethodParametersMetadata = new JSONArray();
-				Method method = methods[i];
-				
-				classMethodsMetadata.put("ModificatoreAccesso", Modifier.toString( method.getModifiers() ) );
-				classMethodsMetadata.put("TipoRitorno", method.getGenericReturnType().getTypeName());
-				classMethodsMetadata.put("Nome", method.getName() );
-
-            	for(Type t : method.getGenericParameterTypes() )
-            		classMethodParametersMetadata.add( t.getTypeName() );
-
-				classMethodsMetadata.put( "TipiParametri", classMethodParametersMetadata );
-
-            	arrayOfMethods.add(classMethodsMetadata);
-            }
-			
-			obj.put("Classe","Person");
-			obj.put("Attributi",arrayOfAttributes);
-			obj.put("Metodi", arrayOfMethods);
-			
-		} catch (IllegalArgumentException e) {
-			obj.put("Errore","Argomento non valido: " + e.getMessage());
-		}
-
-		   
-		
-    	return obj;
+			jsonSchema = jsonSchemaGenerator.generateSchema(Person.class);
+			return mapper.writeValueAsString(jsonSchema);
+		} catch (JsonMappingException e) {
+			JSONObject obj = new JSONObject();
+			obj.put("Errore", e.getMessage());
+			return obj.toString();
+		} catch (JsonProcessingException e) {
+			JSONObject obj = new JSONObject();
+			obj.put("Errore", e.getMessage());
+			return obj.toString();
+		}		
     }
 	
 	/**
