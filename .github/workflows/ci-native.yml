@@ -2,7 +2,7 @@
 # Reference: https://github.com/marketplace/actions/github-action-for-graalvm
 
 name: Java CI - Native Build - GraalVM Community Edition build
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
