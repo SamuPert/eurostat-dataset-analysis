@@ -33,7 +33,6 @@ public class CsvDatasetConfiguration {
 
     @Bean
     public Job csvDatasetImportJob(JobRepository jobRepository,
-            PlatformTransactionManager transactionManager,
             Step csvDatasetImportStep
     ) {
         return new JobBuilder("CsvDatasetImportJob", jobRepository)
