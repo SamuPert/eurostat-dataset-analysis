@@ -1,6 +1,5 @@
 package com.samupert.univpm.eurostat.common.mapper;
 
-public interface DtoMapper<D, E> {
+public interface EntityToDtoMapper<D, E> {
     D getDto(E entity);
-    E getEntity(D dto);
 }
