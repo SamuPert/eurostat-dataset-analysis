@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.NonNull;
 
 import java.util.List;
 
@@ -24,22 +25,19 @@ public class LogicalSearchCriteria implements SearchCriteriaSpecification {
     private List<SearchCriteriaSpecification> criteriaList;
 
     @Override
-    public Predicate toPredicate(Root<MonetaryPoverty> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+    public Predicate toPredicate(@NonNull Root<MonetaryPoverty> root,
+            @NonNull CriteriaQuery<?> query,
+            @NonNull CriteriaBuilder criteriaBuilder
+    ) {
         // Get predicates from child criteria objects recursively.
-        Predicate[] childCriteriaPredicates  = criteriaList.stream()
-                                                           .map(sc -> sc.toPredicate(root, query, criteriaBuilder))
-                                                           .toArray(Predicate[]::new);
+        Predicate[] childCriteriaPredicates = criteriaList.stream()
+                                                          .map(sc -> sc.toPredicate(root, query, criteriaBuilder))
+                                                          .toArray(Predicate[]::new);
 
-        switch (this.operation) {
-            case OR -> {
-                return criteriaBuilder.or(childCriteriaPredicates);
-            }
-            case AND -> {
-                return criteriaBuilder.and(childCriteriaPredicates);
-            }
-            default -> {
-                throw new InvalidOperatorException(this.operation.toString());
-            }
-        }
+        return switch (this.operation) {
+            case OR -> criteriaBuilder.or(childCriteriaPredicates);
+            case AND -> criteriaBuilder.and(childCriteriaPredicates);
+            default -> throw new InvalidOperatorException(this.operation.toString());
+        };
     }
 }
