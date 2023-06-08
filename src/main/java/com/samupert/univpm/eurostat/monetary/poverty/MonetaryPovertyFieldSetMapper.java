@@ -16,7 +16,7 @@ public class MonetaryPovertyFieldSetMapper implements FieldSetMapper<MonetaryPov
     private final SimpleDateFormat dateFormatter;
 
     public MonetaryPovertyFieldSetMapper() {
-        this.dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.ENGLISH);
+        this.dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         dateFormatter.setTimeZone(TimeZone.getTimeZone("Europe/Rome"));
     }
 
@@ -32,7 +32,6 @@ public class MonetaryPovertyFieldSetMapper implements FieldSetMapper<MonetaryPov
             dateString = fieldSet.readString("LAST UPDATE");
             monetaryPoverty.setLastUpdate(dateFormatter.parse(dateString));
         } catch (ParseException e) {
-            log.info("Error parsing date: {}", dateString);
             throw new RuntimeException(e);
         }
         monetaryPoverty.setTimeFrequency(fieldSet.readString("freq"));
