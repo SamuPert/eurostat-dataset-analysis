@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Data
 public final class ApiErrorResponse {
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private final LocalDateTime timestamp;
     private final HttpStatus status;
     private final String error;
