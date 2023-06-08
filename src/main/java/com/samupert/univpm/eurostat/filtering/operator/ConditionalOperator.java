@@ -4,10 +4,10 @@ public enum ConditionalOperator implements Operator {
 
     IN_ARRAY("$in"),
     NOT_IN_ARRAY("$nin"),
-    CONTAINS("$eq"),
-    DOES_NOT_CONTAIN("$neq"),
-    EQUAL("$cn"),
-    NOT_EQUAL("$ncn"),
+    CONTAINS("$cn"),
+    DOES_NOT_CONTAIN("$ncn"),
+    EQUAL("$eq"),
+    NOT_EQUAL("$neq"),
     GREATER_THAN("$gt"),
     GREATER_THAN_EQUAL("$gte"),
     LESS_THAN("$lt"),
@@ -22,5 +22,10 @@ public enum ConditionalOperator implements Operator {
     @Override
     public String toString() {
         return this.operatorValue;
+    }
+
+    @Override
+    public OperatorType getOperatorType() {
+        return OperatorType.CONDITIONAL;
     }
 }

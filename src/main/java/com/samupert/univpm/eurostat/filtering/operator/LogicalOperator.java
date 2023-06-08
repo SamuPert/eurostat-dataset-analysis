@@ -3,6 +3,9 @@ package com.samupert.univpm.eurostat.filtering.operator;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.samupert.univpm.eurostat.filtering.criteria.LogicalOperatorDeserializer;
 
+/**
+ * Represents a logical operator.
+ */
 @JsonDeserialize(using = LogicalOperatorDeserializer.class)
 public enum LogicalOperator implements Operator {
 
@@ -19,5 +22,10 @@ public enum LogicalOperator implements Operator {
     @Override
     public String toString() {
         return this.operatorValue;
+    }
+
+    @Override
+    public OperatorType getOperatorType() {
+        return OperatorType.LOGICAL;
     }
 }
