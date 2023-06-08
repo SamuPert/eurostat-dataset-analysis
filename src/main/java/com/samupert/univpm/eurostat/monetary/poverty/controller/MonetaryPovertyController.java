@@ -6,7 +6,6 @@ import com.samupert.univpm.eurostat.filtering.criteria.mapper.CriteriaMapperFact
 import com.samupert.univpm.eurostat.filtering.criteria.SearchCriteriaSpecification;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPoverty;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPovertyService;
-import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPovertySpecification;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -42,7 +41,6 @@ public class MonetaryPovertyController {
         SearchCriteriaMapper criteriaMapper = this.criteriaMapperFactory.getCriteriaMapper(searchCriteria.operation());
         SearchCriteriaSpecification searchCriteriaEntity = criteriaMapper.getEntity(searchCriteria);
 
-//        MonetaryPovertySpecification specification = new MonetaryPovertySpecification(searchCriteriaEntity);
         return this.monetaryPovertyService.searchByCriteria(searchCriteriaEntity, page).toList();
     }
 }
