@@ -13,6 +13,7 @@ import jakarta.persistence.criteria.Root;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.HibernateException;
+import org.springframework.lang.NonNull;
 
 import java.util.List;
 
@@ -43,7 +44,10 @@ public abstract class ConditionalSearchCriteria<V> implements SearchCriteriaSpec
     }
 
     @Override
-    public Predicate toPredicate(Root<MonetaryPoverty> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) throws InvalidFilterException {
+    public Predicate toPredicate(@NonNull Root<MonetaryPoverty> root,
+            @NonNull CriteriaQuery<?> query,
+            @NonNull CriteriaBuilder criteriaBuilder
+    ) throws InvalidFilterException {
         this.validateFieldName(root);
         this.validateArgs();
         try {
@@ -56,7 +60,7 @@ public abstract class ConditionalSearchCriteria<V> implements SearchCriteriaSpec
     protected abstract Predicate getPredicate(Root<MonetaryPoverty> root,
             CriteriaQuery<?> query,
             CriteriaBuilder criteriaBuilder
-    ) throws InvalidFilterException ;
+    ) throws InvalidFilterException;
 
     protected abstract List<Class<?>> getSupportedFieldTypes();
 
