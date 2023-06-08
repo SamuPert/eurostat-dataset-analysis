@@ -1,7 +1,7 @@
 package com.samupert.univpm.eurostat.filtering;
 
 
-import com.samupert.univpm.eurostat.filtering.criteria.LogicalSearchCriteria;
+import com.samupert.univpm.eurostat.filtering.criteria.logical.LogicalSearchCriteria;
 import com.samupert.univpm.eurostat.filtering.operator.Operator;
 import org.springframework.lang.NonNull;
 

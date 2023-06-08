@@ -1,7 +1,7 @@
 package com.samupert.univpm.eurostat.filtering.operator;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.samupert.univpm.eurostat.filtering.criteria.LogicalOperatorDeserializer;
+import com.samupert.univpm.eurostat.filtering.criteria.logical.LogicalOperatorDeserializer;
 
 /**
  * Represents a logical operator.
