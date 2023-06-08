@@ -1,5 +1,6 @@
 package com.samupert.univpm.eurostat.monetary.poverty.controller;
 
+import com.samupert.univpm.eurostat.common.metadata.EntityMetadata;
 import com.samupert.univpm.eurostat.filtering.SearchCriteriaDto;
 import com.samupert.univpm.eurostat.filtering.criteria.mapper.SearchCriteriaMapper;
 import com.samupert.univpm.eurostat.filtering.criteria.mapper.CriteriaMapperFactory;
@@ -9,6 +10,7 @@ import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPovertyService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,5 +44,10 @@ public class MonetaryPovertyController {
         SearchCriteriaSpecification searchCriteriaEntity = criteriaMapper.getEntity(searchCriteria);
 
         return this.monetaryPovertyService.searchByCriteria(searchCriteriaEntity, page).toList();
+    }
+
+    @GetMapping("metadata")
+    public ResponseEntity<EntityMetadata> getMetadata() {
+        return ResponseEntity.ok(this.monetaryPovertyService.getMetadata());
     }
 }
