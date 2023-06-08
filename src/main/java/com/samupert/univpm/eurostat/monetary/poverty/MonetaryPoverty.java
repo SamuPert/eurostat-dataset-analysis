@@ -1,5 +1,6 @@
 package com.samupert.univpm.eurostat.monetary.poverty;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,7 +16,10 @@ public class MonetaryPoverty {
     private Long id;
 
     private String dataflow;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private Date lastUpdate;
+
     private String timeFrequency;
     private String activityAndEmploymentStatus;
     private String incomeAndLivingConditionsIndicator;
