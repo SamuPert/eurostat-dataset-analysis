@@ -7,7 +7,6 @@ import org.springframework.lang.NonNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 import java.util.TimeZone;
 
 @Slf4j
@@ -27,9 +26,8 @@ public class MonetaryPovertyFieldSetMapper implements FieldSetMapper<MonetaryPov
 
         monetaryPoverty.setDataflow(fieldSet.readString("DATAFLOW"));
 
-        String dateString = null;
         try {
-            dateString = fieldSet.readString("LAST UPDATE");
+            String dateString = fieldSet.readString("LAST UPDATE");
             monetaryPoverty.setLastUpdate(dateFormatter.parse(dateString));
         } catch (ParseException e) {
             throw new RuntimeException(e);
