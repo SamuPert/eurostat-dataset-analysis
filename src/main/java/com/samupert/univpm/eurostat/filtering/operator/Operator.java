@@ -5,7 +5,7 @@ package com.samupert.univpm.eurostat.filtering.operator;
  */
 public interface Operator {
     /**
-     * Gets the operator type.
+     * Gets the operator type. See {@link OperatorType}.
      *
      * @return The operator type.
      */
