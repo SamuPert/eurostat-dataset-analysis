@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * Exception handler for the Monetary Poverty Controller.
+ */
 @RestControllerAdvice(assignableTypes = MonetaryPovertyController.class)
 public class MonetaryPovertyControllerAdvice extends ResponseEntityExceptionHandler {
 
@@ -26,6 +29,12 @@ public class MonetaryPovertyControllerAdvice extends ResponseEntityExceptionHand
         return ResponseEntity.badRequest().body(apiResponse);
     }
 
+    /**
+     * Handles thrown {@link InvalidFilterException}.
+     *
+     * @param e The exception to handle.
+     * @return The API error response entity.
+     */
     @ExceptionHandler(InvalidFilterException.class)
     public ResponseEntity<ApiErrorResponse> handleInvalidFilterException(@NonNull InvalidFilterException e) {
         ApiErrorResponse apiResponse = new ApiErrorResponse(HttpStatus.BAD_REQUEST, e.getMessage());
