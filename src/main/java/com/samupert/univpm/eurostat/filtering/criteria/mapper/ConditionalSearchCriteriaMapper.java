@@ -9,10 +9,23 @@ import com.samupert.univpm.eurostat.filtering.operator.ConditionalOperator;
 import com.samupert.univpm.eurostat.filtering.operator.mapper.ConditionalOperatorMapper;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class maps a {@link SearchCriteriaDto} to a {@link ConditionalSearchCriteria}.
+ * @see SearchCriteriaMapper
+ */
 @Component
 public class ConditionalSearchCriteriaMapper implements SearchCriteriaMapper {
+
+    /**
+     * The {@link ConditionalOperatorMapper} used to map a {@link SearchCriteriaDto} to a {@link ConditionalOperator}.
+     */
     private final ConditionalOperatorMapper operatorMapper;
 
+    /**
+     * Creates a new {@link ConditionalSearchCriteriaMapper} with the given {@link ConditionalOperatorMapper}.
+     *
+     * @param operatorMapper The {@link ConditionalOperatorMapper} used to map a {@link SearchCriteriaDto} to a {@link ConditionalOperator}.
+     */
     public ConditionalSearchCriteriaMapper(ConditionalOperatorMapper operatorMapper) {
         this.operatorMapper = operatorMapper;
     }

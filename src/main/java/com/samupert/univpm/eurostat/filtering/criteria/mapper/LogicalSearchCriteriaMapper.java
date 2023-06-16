@@ -9,14 +9,30 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * Mapper for the logical search criteria.
+ */
 @Component
 public class LogicalSearchCriteriaMapper implements SearchCriteriaMapper {
 
+    /**
+     * Mapper for the logical operator.
+     */
     private final LogicalOperatorMapper operatorMapper;
+
+    /**
+     * Mapper factory to create the mapper for the criteria.
+     */
     private final CriteriaMapperFactory criteriaMapperFactory;
 
+    /**
+     * Create a new mapper for the logical search criteria.
+     *
+     * @param operatorMapper The mapper for the logical operator.
+     * @param criteriaMapperFactory  The mapper factory to create the mapper for the criteria.
+     */
     public LogicalSearchCriteriaMapper(LogicalOperatorMapper operatorMapper,
-            @Lazy CriteriaMapperFactory criteriaMapperFactory
+            CriteriaMapperFactory criteriaMapperFactory
     ) {
         this.operatorMapper = operatorMapper;
         this.criteriaMapperFactory = criteriaMapperFactory;
