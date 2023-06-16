@@ -5,15 +5,35 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 
-public class GreaterThanOrEqualToConditionalSearchCriteria extends ConditionalSearchCriteria<Number> {
-    public GreaterThanOrEqualToConditionalSearchCriteria(String fieldName, Object value) {
-        this.fieldName = fieldName;
 
-        // Assert that the value is a list of strings
-        this.value = ((Number) value);
+/**
+ * The conditional search criteria specification that checks if the field value is greater or equal to the given value. See {@link Specification}.
+ * <hr />
+ * The JSON filter is:
+ * <pre>
+ * {
+ *     "operation": "$gte",
+ *     "fieldName": "timePeriod",
+ *     "value": 2017
+ *  }
+ * </pre>
+ */
+public class GreaterThanOrEqualToConditionalSearchCriteria extends ConditionalSearchCriteria<Number> {
+
+    /**
+     * Creates a new instance of the {@link GreaterThanOrEqualToConditionalSearchCriteria} class.
+     *
+     * @param fieldName The field name to filter.
+     * @param value The value to filter.
+     * @throws ClassCastException Thrown if the value is not a {@link Number}.
+     */
+    public GreaterThanOrEqualToConditionalSearchCriteria(String fieldName, Object value) throws ClassCastException {
+        this.fieldName = fieldName;
+        this.value = (Number) value;
     }
 
 

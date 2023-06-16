@@ -16,12 +16,22 @@ import org.springframework.lang.NonNull;
 
 import java.util.List;
 
+/**
+ * Entity class to represent a logical search criteria.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Slf4j
 public class LogicalSearchCriteria implements SearchCriteriaSpecification {
+    /**
+     * Logical operator of the search criteria.
+     */
     private LogicalOperator operation;
+
+    /**
+     * List of child criteria objects.
+     */
     private List<SearchCriteriaSpecification> criteriaList;
 
     @Override
