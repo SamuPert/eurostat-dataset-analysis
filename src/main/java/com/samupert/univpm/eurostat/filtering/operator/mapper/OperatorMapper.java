@@ -4,21 +4,21 @@ import com.samupert.univpm.eurostat.common.mapper.DtoToEntityMapper;
 import com.samupert.univpm.eurostat.common.mapper.EntityToDtoMapper;
 import com.samupert.univpm.eurostat.filtering.exception.InvalidOperatorException;
 import com.samupert.univpm.eurostat.filtering.operator.Operator;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+/**
+ * The generic mapper for the Operator class.
+ * It's used to convert a {@link String} to a {@link Operator} and viceversa.
+ *
+ * @see Operator
+ */
 @Component
+@AllArgsConstructor
 public class OperatorMapper implements DtoToEntityMapper<String, Operator>, EntityToDtoMapper<String, Operator> {
 
     private final LogicalOperatorMapper logicalOperatorMapper;
     private final ConditionalOperatorMapper conditionalOperatorMapper;
-
-    public OperatorMapper(LogicalOperatorMapper logicalOperatorMapper,
-            ConditionalOperatorMapper conditionalOperatorMapper
-    ) {
-        this.logicalOperatorMapper = logicalOperatorMapper;
-        this.conditionalOperatorMapper = conditionalOperatorMapper;
-    }
-
 
     @Override
     public String getDto(Operator entity) {

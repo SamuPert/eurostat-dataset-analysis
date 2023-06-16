@@ -6,6 +6,9 @@ import com.samupert.univpm.eurostat.filtering.exception.InvalidOperatorException
 import com.samupert.univpm.eurostat.filtering.operator.LogicalOperator;
 import org.springframework.stereotype.Component;
 
+/**
+ * Mapper to map a String to a LogicalOperator and vice versa.
+ */
 @Component
 public class LogicalOperatorMapper implements DtoToEntityMapper<String, LogicalOperator>, EntityToDtoMapper<String, LogicalOperator> {
     @Override

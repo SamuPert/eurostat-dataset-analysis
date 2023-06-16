@@ -6,6 +6,9 @@ import com.samupert.univpm.eurostat.filtering.exception.InvalidOperatorException
 import com.samupert.univpm.eurostat.filtering.operator.ConditionalOperator;
 import org.springframework.stereotype.Component;
 
+/**
+ * Mapper to map a String to a ConditionalOperator and vice versa.
+ */
 @Component
 public class ConditionalOperatorMapper implements DtoToEntityMapper<String, ConditionalOperator>, EntityToDtoMapper<String, ConditionalOperator> {
     @Override
