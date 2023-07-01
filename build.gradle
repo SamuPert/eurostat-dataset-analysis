@@ -43,3 +43,7 @@ hibernate {
 	}
 }
 
+javadoc {
+	source = sourceSets.main.allJava
+}
+

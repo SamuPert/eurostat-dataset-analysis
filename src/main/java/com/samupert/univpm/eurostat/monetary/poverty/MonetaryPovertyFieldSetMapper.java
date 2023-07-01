@@ -7,19 +7,31 @@ import org.springframework.lang.NonNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 import java.util.TimeZone;
 
+/**
+ * Field set mapper for Monetary Poverty data.
+ * @see MonetaryPoverty
+ */
 @Slf4j
 public class MonetaryPovertyFieldSetMapper implements FieldSetMapper<MonetaryPoverty> {
 
     private final SimpleDateFormat dateFormatter;
 
+    /**
+     * Initialize the field set mapper.
+     */
     public MonetaryPovertyFieldSetMapper() {
-        this.dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm:ss", Locale.ENGLISH);
+        this.dateFormatter = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         dateFormatter.setTimeZone(TimeZone.getTimeZone("Europe/Rome"));
     }
 
+    /**
+     * It maps the given field set to a Monetary Poverty entity.
+     *
+     * @param fieldSet the {@link FieldSet} to map.
+     * @return the mapped Monetary Poverty entity.
+     */
     @Override
     @NonNull
     public MonetaryPoverty mapFieldSet(@NonNull FieldSet fieldSet) {
@@ -27,12 +39,10 @@ public class MonetaryPovertyFieldSetMapper implements FieldSetMapper<MonetaryPov
 
         monetaryPoverty.setDataflow(fieldSet.readString("DATAFLOW"));
 
-        String dateString = null;
         try {
-            dateString = fieldSet.readString("LAST UPDATE");
+            String dateString = fieldSet.readString("LAST UPDATE");
             monetaryPoverty.setLastUpdate(dateFormatter.parse(dateString));
         } catch (ParseException e) {
-            log.info("Error parsing date: {}", dateString);
             throw new RuntimeException(e);
         }
         monetaryPoverty.setTimeFrequency(fieldSet.readString("freq"));

@@ -13,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 import java.io.*;
 import java.util.zip.GZIPInputStream;
 
+/**
+ * Service for handling file operations.
+ */
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -51,7 +54,6 @@ public class FileService {
         }
     }
 
-
     /**
      * Extract the provided zipped file to a temporary file.
      *
@@ -78,5 +80,4 @@ public class FileService {
             throw new GunzipFileException(zippedFile.getAbsolutePath());
         }
     }
-
 }

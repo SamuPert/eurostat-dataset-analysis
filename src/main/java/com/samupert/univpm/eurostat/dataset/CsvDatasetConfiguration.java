@@ -3,7 +3,6 @@ package com.samupert.univpm.eurostat.dataset;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPoverty;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPovertyFieldSetMapper;
 import jakarta.persistence.EntityManagerFactory;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -25,12 +24,21 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.io.Resource;
 import org.springframework.transaction.PlatformTransactionManager;
 
+/**
+ * CSV dataset configuration.
+ */
 @Configuration
 @Slf4j
-@AllArgsConstructor
 @DependsOn(value = "CsvDatasetResource")
 public class CsvDatasetConfiguration {
 
+    /**
+     * Job to import the CSV dataset.
+     *
+     * @param jobRepository The repository where the jobs are stored.
+     * @param csvDatasetImportStep The step to import the CSV dataset.
+     * @return The job to import the CSV dataset.
+     */
     @Bean
     public Job csvDatasetImportJob(JobRepository jobRepository,
             Step csvDatasetImportStep
@@ -40,6 +48,15 @@ public class CsvDatasetConfiguration {
                        .build();
     }
 
+    /**
+     * Step to import the CSV dataset.
+     *
+     * @param jobRepository The repository where the jobs are stored.
+     * @param transactionManager The transaction manager used to execute the steps.
+     * @param csvItemReader The reader to read the CSV dataset.
+     * @param csvItemWriter The writer to write the CSV dataset to.
+     * @return The step to import the CSV dataset.
+     */
     @Bean
     public Step csvDatasetImportStep(JobRepository jobRepository,
             PlatformTransactionManager transactionManager,
@@ -53,6 +70,12 @@ public class CsvDatasetConfiguration {
                        .build();
     }
 
+    /**
+     * Reader to read the CSV dataset.
+     *
+     * @param csvResource The CSV dataset resource to import.
+     * @return The reader to read the CSV dataset.
+     */
     @Bean
     public ItemReader<MonetaryPoverty> csvItemReader(Resource csvResource) {
         FlatFileItemReader<MonetaryPoverty> itemReader = new FlatFileItemReader<>();
@@ -62,6 +85,14 @@ public class CsvDatasetConfiguration {
         return itemReader;
     }
 
+    /**
+     * Writer to write the CSV dataset to.
+     *
+     * @param entityManagerFactory The entity manager factory to use to write the CSV dataset to.
+     * @return The writer to write the CSV dataset to.
+     *
+     * @throws Exception When the writer cannot be created.
+     */
     @Bean
     public ItemWriter<MonetaryPoverty> csvItemWriter(EntityManagerFactory entityManagerFactory) throws Exception {
         JpaItemWriter<MonetaryPoverty> itemWriter = new JpaItemWriter<>();
@@ -70,6 +101,11 @@ public class CsvDatasetConfiguration {
         return itemWriter;
     }
 
+    /**
+     * Line mapper to map the CSV dataset rows to the {@link MonetaryPoverty} class.
+     *
+     * @return The line mapper to map the CSV dataset.
+     */
     @Bean
     public LineMapper<MonetaryPoverty> lineMapper() {
         DefaultLineMapper<MonetaryPoverty> lineMapper = new DefaultLineMapper<>();
@@ -78,6 +114,11 @@ public class CsvDatasetConfiguration {
         return lineMapper;
     }
 
+    /**
+     * Line tokenizer to tokenize the CSV dataset rows.
+     *
+     * @return The line tokenizer to tokenize the CSV dataset.
+     */
     @Bean
     public LineTokenizer lineTokenizer() {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
@@ -86,6 +127,11 @@ public class CsvDatasetConfiguration {
         return lineTokenizer;
     }
 
+    /**
+     * Field set mapper to map the CSV dataset rows to the {@link MonetaryPoverty} class.
+     *
+     * @return The field set mapper to map the CSV dataset rows to the {@link MonetaryPoverty} class.
+     */
     @Bean
     public FieldSetMapper<MonetaryPoverty> fieldSetMapper() {
         return new MonetaryPovertyFieldSetMapper();
