@@ -1,9 +1,12 @@
-package com.samupert.univpm.eurostat.filtering.criteria.mapper;
+package com.samupert.univpm.eurostat.filtering.criteria.mapper.factory;
 
 import com.samupert.univpm.eurostat.common.mapper.MappingException;
+import com.samupert.univpm.eurostat.filtering.criteria.mapper.ConditionalSearchCriteriaMapper;
+import com.samupert.univpm.eurostat.filtering.criteria.mapper.LogicalSearchCriteriaMapper;
+import com.samupert.univpm.eurostat.filtering.criteria.mapper.SearchCriteriaMapper;
 import com.samupert.univpm.eurostat.filtering.operator.Operator;
-import com.samupert.univpm.eurostat.filtering.operator.OperatorType;
 import com.samupert.univpm.eurostat.filtering.operator.mapper.OperatorMapper;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.domain.Specification;
@@ -24,12 +27,17 @@ public class CriteriaMapperFactory {
     /**
      * The {@link LogicalSearchCriteriaMapper} used to map the search criteria to the {@link Specification}.
      */
-    private final @Lazy LogicalSearchCriteriaMapper logicalSearchCriteriaMapper;
+    private final LogicalSearchCriteriaMapper logicalSearchCriteriaMapper;
 
     /**
      * The {@link ConditionalSearchCriteriaMapper} used to map the search criteria to the {@link Specification}.
      */
-    private final @Lazy ConditionalSearchCriteriaMapper conditionalSearchCriteriaMapper;
+    private final ConditionalSearchCriteriaMapper conditionalSearchCriteriaMapper;
+
+    @PostConstruct
+    public void initCriteriaMapperFactory() {
+        this.logicalSearchCriteriaMapper.setCriteriaMapperFactory(this);
+    }
 
     /**
      * Get the {@link SearchCriteriaMapper} based on the operator type.
@@ -42,14 +50,10 @@ public class CriteriaMapperFactory {
     public SearchCriteriaMapper getCriteriaMapper(String operatorType) throws MappingException {
         Operator operator = operatorMapper.getEntity(operatorType);
 
-        if (operator.getOperatorType() == OperatorType.LOGICAL) {
-            return this.logicalSearchCriteriaMapper;
-        }
-
-        if (operator.getOperatorType() == OperatorType.CONDITIONAL) {
-            return this.conditionalSearchCriteriaMapper;
-        }
-
-        throw new MappingException("Invalid operator type");
+        return switch (operator.getOperatorType()) {
+            case LOGICAL -> this.logicalSearchCriteriaMapper;
+            case CONDITIONAL -> this.conditionalSearchCriteriaMapper;
+            default -> throw new MappingException("Invalid operator type: " + operator.getOperatorType());
+        };
     }
 }

@@ -3,7 +3,7 @@ package com.samupert.univpm.eurostat.monetary.poverty.controller;
 import com.samupert.univpm.eurostat.common.metadata.EntityMetadata;
 import com.samupert.univpm.eurostat.filtering.SearchCriteriaDto;
 import com.samupert.univpm.eurostat.filtering.criteria.mapper.SearchCriteriaMapper;
-import com.samupert.univpm.eurostat.filtering.criteria.mapper.CriteriaMapperFactory;
+import com.samupert.univpm.eurostat.filtering.criteria.mapper.factory.CriteriaMapperFactory;
 import com.samupert.univpm.eurostat.filtering.criteria.SearchCriteriaSpecification;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPoverty;
 import com.samupert.univpm.eurostat.monetary.poverty.MonetaryPovertyService;
