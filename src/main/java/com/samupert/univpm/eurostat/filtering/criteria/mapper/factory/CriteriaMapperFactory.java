@@ -8,7 +8,6 @@ import com.samupert.univpm.eurostat.filtering.operator.Operator;
 import com.samupert.univpm.eurostat.filtering.operator.mapper.OperatorMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
@@ -34,6 +33,9 @@ public class CriteriaMapperFactory {
      */
     private final ConditionalSearchCriteriaMapper conditionalSearchCriteriaMapper;
 
+    /**
+     * Dynamically set criteria mapper factory.
+     */
     @PostConstruct
     public void initCriteriaMapperFactory() {
         this.logicalSearchCriteriaMapper.setCriteriaMapperFactory(this);
