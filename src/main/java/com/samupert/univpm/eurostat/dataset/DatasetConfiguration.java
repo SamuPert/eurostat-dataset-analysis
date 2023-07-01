@@ -3,7 +3,6 @@ package com.samupert.univpm.eurostat.dataset;
 import com.samupert.univpm.eurostat.common.service.FileService;
 import com.samupert.univpm.eurostat.exception.DownloadFileException;
 import com.samupert.univpm.eurostat.exception.GunzipFileException;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +17,6 @@ import java.io.FileNotFoundException;
 /**
  * Provides the configuration for the dataset resource.
  */
-@AllArgsConstructor
 @Configuration
 @Slf4j
 public class DatasetConfiguration {
