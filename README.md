@@ -1,3 +1,7 @@
+**NOTE**: *This file is outdated, please refer to [https://samupert.github.io/rest-api-eurostat-dataset/javadoc](https://samupert.github.io/rest-api-eurostat-dataset/javadoc)*
+
+-----
+
 # Progetto di Programmazione ad Oggetti
 ###### di Samuele Perticarari e Martina Rossi
 
