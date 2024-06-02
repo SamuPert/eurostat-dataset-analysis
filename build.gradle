@@ -47,3 +47,10 @@ javadoc {
 	source = sourceSets.main.allJava
 }
 
+jar {
+	archiveBaseName = 'eurostat-app'
+    archiveVersion =  '0.1.0'
+    manifest {
+        attributes 'Main-Class': 'com.samupert.univpm.eurostat.EurostatApplication'
+    }
+}
